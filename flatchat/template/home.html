@@ -1,0 +1,626 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+
+    {% if status %}
+    <script>
+        alert("{{status}}");
+        window.location="/"
+    </script>
+    {% endif %}
+    
+    <style> 
+        body{
+            margin:0; padding:0;
+            overflow-x:hidden;
+        }
+            a:hover{
+                text-decoration:none;
+            }
+            .hover:hover{
+                box-shadow: 0px 0px 12px burlywood;
+            }
+           
+            .property_thumb {
+            position: relative;
+            overflow: hidden;
+            overflow-x: hidden;
+            overflow-y: hidden;
+            }
+
+        .property_tag {
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            background: #fdae5c;
+            padding: 8px 14px;
+            color: #fff;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 500;
+            z-index: 1;
+        }
+       
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Exo 2', sans-serif;
+          }
+            
+          .wrapper{
+            margin-top: 60px;
+            text-align: center;
+          }
+          
+          .wrapper h1{
+            font-family: 'Yatra One', cursive;
+            font-size: 48px;
+            color: #fff;
+            margin-bottom: 25px;
+          }
+          
+          .our_team{
+            width: auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+          }
+          
+          .our_team .team_member{
+            width: 250px;
+            margin: 5px;
+            background: #fff;
+            padding: 20px 10px;
+          }
+          
+          .our_team .team_member .member_img{
+            background: #e9e5fa;  
+            max-width: 190px;
+            width: 100%;
+            height: 190px;
+            margin: 0 auto;
+            border-radius: 50%;
+            padding: 5px;
+            position: relative;
+            cursor: pointer;
+          }
+          
+          .our_team .team_member .member_img img{
+            width: 100%;
+            height: 100%;
+          }
+          
+          .our_team .team_member h3{
+            text-transform: uppercase;
+            font-size: 18px;
+            line-height: 18px;
+            letter-spacing: 2px;
+            margin: 15px 0 0px;
+          }
+          
+          .our_team .team_member span{
+            font-size: 10px;
+          }
+          
+          .our_team .team_member p{
+            margin-top: 20px;
+            font-size: 14px;
+            line-height: 20px;
+          }
+          
+          .our_team .team_member .member_img .social_media{
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            background: rgba(0,0,0,0.65);
+            width: 95%;
+            height: 95%;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: scale(0);
+             transition: all 0.5s ease;
+          }
+          
+          .our_team .team_member .member_img .social_media .item{
+            margin: 0 10px;
+          }
+          
+          .our_team .team_member .member_img .social_media .fab{
+            color: #8c7ae6;
+            font-size: 20px;
+          }
+          
+          .our_team .team_member .member_img:hover .social_media{
+            transform: scale(1);
+          }
+        /*.card:hover{
+            transform: scale(1.1);transition: 1s;    
+        }
+        */
+
+        .box:hover{
+            height:100%; width:100%; background:rgba(0,0,0,0.3); color:brown !important;
+        }
+        a:hover{
+            color:black; text-decoration:none;
+        }
+        a{
+            
+            color:black;
+        }
+        .carousel-indicators{
+            margin-bottom:20px;
+        }
+
+        .carousel-control-next-icon, .carousel-control-prev-icon{
+            height:40px;
+            width:40px;
+        }
+
+        .carousel-inner img {
+            width:100%;
+            height:600px;
+          }
+
+    </style>
+{% endblock %}
+
+{% block myblock %}
+
+<div class="container-fluid cntnr"> <!--start of container-->
+
+    <div class="row">
+        <div class="col-md-12 mx-0 px-0">
+            <div class="carousel slide px-0 mx-0 " data-ride="carousel" id="feed"> <!--carousel starts here-->
+                <ul class="carousel-indicators" >
+                    <li data-target="#feed" data-slide-to="0" class="active "></li>
+                    <li data-target="#feed" data-slide-to="1" ></li>  
+                </ul>
+                <div class="carousel-inner"> <!--carousel inner starts here-->
+    
+                    <div class="carousel-item active"> 
+                        <div>
+                        <img src="{% static 'images/h15.jpeg'%}" alt="Los Angeles">
+                        <div class="carousel-caption h-100">
+                          <h1 style="margin-top:100px; font-size:50px; font-weight:bold; box-shadow:0px 0px 1px white;" class="p-3">Find Your Dream Property
+                          <p style="font-size:24px; font-weight:bold;">We had such a great time in LA!</p>
+                          </h1>
+
+                          <h3>
+                            <form action="{% url 'all_properties' %}">
+                                <div class="container">
+                                    <div class="row">
+                                        <!--
+                                        <div class="col-md-5 mb-1">
+                                            <input type="text" name="qry" class="form-control" placeholder="Enter Property Name, Type or Location...." style="height:50px;">
+                                        </div>
+                                        -->
+                                        <div class="col-md-7 mb-1 mx-auto">
+                                            <input type="text" name="qry" class="form-control" placeholder="Search By Location..." style="height:50px;">
+                                        </div>
+                                        <div class="col-md-3 mx-auto">
+                                            <button type="submit" class="btn btn-primary btn-block font-weight-bold" style="height:50px;">Search</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                          </h3>
+                        </div> 
+                        </div>
+                    </div>
+                </div> <!--carousel inner ends here-->
+    
+            </div> <!--carousel ends here-->
+        </div>
+    </div>
+        
+   <!--
+    <div class="row">
+        <div class="col-md-12 text-center p-2" style="box-shadow:0px 0px 10px purple;">
+            <h1>Featured Collections ({{category|length}})</h1>
+            <p style="font-size:20px; font-weight:bold;">(Handpicked projects for you.)</p>    
+        </div>
+
+        {% for c in category %}
+        <div class="card col-md-4 p-4 text-center text-dark">
+            <div class="card-header">
+                <div style="box-shadow:0px 0px 10px black;height:210px; background:url('/media/{{c.cover_pic}}'); background-size:100% 100%;">
+                    <a href="{% url 'all_properties' %}?cat={{c.id}}">
+                        <div class="box text-light" style="height:200px;">
+                            <h4 style="color:saddlebrown; font-weight:bold;">{{c.cat_name}}</h4>
+                            <p style="font-size:15 px; font-weight:bold;">{{c.description}}</p>
+                        </div>
+                    </a>    
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    --> 
+
+    <div class="row"> <!--populr proprties hedg row starts-->
+        <div class="col-md-12 text-center pt-5 mt-5">
+            <h1 style="color:black; font-size:40px; font-weight:bold;">Recent  Property</h1>
+            <p class="text-muted">We help you to grow business with More than 25 years experience with these <br>services.</p>
+        </div>
+    </div> <!--populr proprties hedg row ends here-->
+
+
+    
+        
+    <div class="row py-3">
+            {% for i in properties %}
+            <div class="card col-md-3 ml-5 mr-5 mb-3 p-0 hover">
+                <img class="card-img-top" src="/media/{{i.property_image1}}" height="183px" width="100%" alt="Card image">
+                <div class="card-body">
+                    <a href="{% url 'single_property' %}?pid={{i.id}}"><h4 class="card-title  text-center">{{i.property_name}}</h4></a>
+                    <p class="card-title text-center text-secondary"><i class="fas fa-map-marker-alt mr-1 text-success"></i>{{i.address}}</p>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <span style="font-weight:bold; font-size:15px;"><i class="fas fa-bed text-success mr-1"></i>{{i.no_of_bedrooms}}+ Beds</span>
+                                </div>
+                                <div class="col-md-6">
+                                    <span style="font-weight:bold; font-size:15px;"><i class="fas fa-bath text-success mr-1"></i>{{i.no_of_bathrooms}}+ Baths</span>
+                                </div>
+                                <div class="col-md-6">
+                                    <span style="font-weight:bold; font-size:15px;"><i class="fas fa-sync-alt text-success mr-1"></i>{{i.area}} sq.ft</span>
+                                </div> 
+                                <div class="col-md-6">
+                                    <span style="font-weight:bold; font-size:15px;"><i class="fas fa-user text-success mr-1"></i>{{i.seller.first_name}}</span>
+                                </div>
+
+                                <div class="row mt-2">
+                                    <div class="col-md-2"></div>
+
+                                    <div class="col-md-2">
+                                        <img src="{% static 'images/book_property.jpg'%}" style="height:60px;width:100px;">  
+                                    </div>
+
+                                    <div class="col-md-2"></div>
+    
+                                    <div class="col-md-6 mx-auto mt-3">
+                                        <span style="font-weight:bold; font-size:20px; color:brown;">&#36; {{i.booking_amount}}</span>    
+                                    </div>   
+                                </div>
+  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer text-center">
+                                <a href="{% url 'single_property' %}?pid={{i.id}}">
+                                    <button type="button" class="btn btn-outline-light btn-block text-light bg-success p-2">
+                                        <b>View Property</b>
+                                    </button>
+                                </a>   
+                </div>
+            </div>
+            {% endfor %}
+    </div>
+        
+
+    <div class="row mb-5 mt-5"> <!--more properties btn starts here-->
+        <div class="col-md-12 text-center">
+        <a href="{% url 'all_properties' %}" class="btn btn-outline-success rounded-pill pl-5 pr-5 pt-2 pb-2" style="font-weight:bold;">More Properties</a>
+        </div>
+    </div> <!--more proprties btn ends here-->
+
+    <div class="row mb-5" style="background-image: url('{% static "images/abt.png"%}');height:550px; background-size: 100% 100%;"> <!--view proprty row starts here-->
+        <div class="col-md-5 mb-5 mt-5 bg-light" style="border:1px solid orange; margin-left:100px;">
+                <a href="#">
+                    <button type="button" class="btn text-light p-2" style="background-color: darkorange; font-size:18px;">
+                        <b>For Rent</b>
+                    </button>
+                </a>
+            
+                <h2>Blue Heaven Modern Home</h2>
+                <p><i class="fas fa-map-marker-alt"></i>Popular Properties</p>
+                <hr/>
+                <p>
+                    <span style="margin-right:100px; margin-left:10px;"><i class="fas fa-cube"></i>1200 Sqft</span>
+                    <span style="margin-right:100px;"><i class="fas fa-bed"></i>2 Bed</span>
+                    <span style="margin-right:100px;"><i class="fas fa-bath"></i>2 Bath</span>
+                </p>
+                <p>Blue Heaven -
+                    This residence has a combination of modern contemporary style. The artistic patterns with subtle colors has a perfect Interior designing which looks very beautiful.
+                </p>
+                <p>
+                    <span style="margin-right:200px; color:darkorange; font-weight:bold; font-size:28px;">&#36; 4567</span> 
+                    <span>
+                        <a href="{% url 'view_property' %}">
+                            <button type="button" class="btn rounded-pill btn-outline-warning text-danger bg-warning p-2">
+                                <b>View Property</b>
+                            </button>
+                        </a>
+                    </span>
+                </p>
+            
+        </div> <!--end of col-md-5-->
+    </div> <!--view proprty row ends here-->
+
+    <div class="row px-0" style="margin-top:130px; margin-bottom:100px;"> <!-- feedback row carousel starts here-->
+            <div class="col-md-12 px-0">
+            <h4 class="text-center mb-5" style="margin-top:30px; color:midnightblue; font-size:45px; font-family:lobster;">Our Customers Love Us</h4>
+            </div>
+            <div class="col-md-8 mb-3"> <!--col-md-8 starts here-->
+                <div class="carousel slide px-0 mx-0 " data-ride="carousel" id="feed"> <!--carousel starts here-->
+                    <ul class="carousel-indicators" >
+                        <li data-target="#feed" data-slide-to="0" class="active "></li>
+                        <li data-target="#feed" data-slide-to="1" ></li>
+                        <li data-target="#feed" data-slide-to="2" ></li>   
+                    </ul>
+                    
+
+                    <div class="carousel-inner"> <!--carousel inner starts here-->
+                        <div class="carousel-item active">
+                            <div class="text-center p-5"style="width:95%;height:500px;background-color:navy;color:white;">
+                                <h1></h1><br><br><br><br>
+                                <h3>Excellent Service</h3>
+                                <p>It was a nice experience with Flatchat. They helped me to find a new home to stay as it was difficult for me,as an individual,to find a home with friendly roommates.Thankfully Flatchat helped me to get one with all kind of facilities.</p>
+                                <p>-Kritika kamra</p>
+                            </div>    
+                        </div>
+                        {% for i in messages %}
+                        <div class="carousel-item ">
+                            <div class="text-center p-5"style="width:95%;height:500px;background-color:navy;color:white;">
+                                <h1></h1><br><br><br><br>
+                                <h3>{{i.subject}}</h3>
+                                <p>{{i.message}}</p>
+                                <p>-{{i.name}}</p>
+                            </div>
+                        </div>  
+                        {% endfor %}
+                    </div> <!--carousel inner ends here-->
+        
+                    <a href="#feed" class="carousel-control-prev"  data-slide="prev">
+                        <span class="carousel-control-prev-icon" ></span>
+                    </a>
+        
+                    
+                    <a href="#feed" class="carousel-control-next" data-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </a>
+                </div> <!--carousel ends here-->
+            </div> <!--col-md-8 ends here-->
+        
+        <div class="col-md-4 px-0">
+            <img src="{% static 'images/fdbk.webp'%}" alt="Not Found" height="500px" width="100%%" style="border-radius:10px;">
+        </div>
+    </div> <!--feedback row carousel ends here-->
+
+    <div class="row mb-5" style="background-image: url('{% static "images/img.png"%}'); background-size: 100% 100%; height:300px; width:100%;"> <!--only image row starts here-->
+        <div class="col-md-12"></div>
+    </div> <!--only image row ends here-->
+
+
+    <div class="wrapper" style="background-color:whitesmoke;" >
+        <h1 style="color:midnightblue;">Our Team</h1>
+        <div class="our_team">
+            <div class="team_member ml-3 mb-5" style="background-color:gainsboro;">
+              <div class="member_img">
+                 <img src="{% static 'images/team4.png'%}" alt="our_team">
+                <div class="social_media">
+                   <div class="facebook item"><i class="fab fa-facebook-f"></i></div>
+                   <div class="twitter item"><i class="fab fa-twitter"></i></div>
+                   <div class="instagram item"><i class="fab fa-instagram"></i></div>
+                 </div>
+              </div>
+              <h3 style="color:mediumblue; font-weight:700;">John wright</h3>
+              <span style="color:navy; font-weight:600;">CEO</span>
+              <p style="text-align:justify; font-family:sans-serif;">John comes with more than 16 years of experience and has been a successful
+                entrepreneur, technology leader and computer scientist. He has extensive
+                exposure to the field of e-commerce, application design and architecture.
+              </p>
+            </div>
+            <div class="team_member  ml-3 mb-5" style="background-color:gainsboro;">
+               <div class="member_img">
+                 <img src="{% static 'images/team1.png'%}" alt="our_team">
+                 <div class="social_media">
+                   <div class="facebook item"><i class="fab fa-facebook-f"></i></div>
+                   <div class="twitter item"><i class="fab fa-twitter"></i></div>
+                   <div class="instagram item"><i class="fab fa-instagram"></i></div>
+                 </div>
+              </div>
+              <h3 style="color:mediumblue;font-weight:700;">Mani mori</h3>
+              <span style="color:navy;font-weight:600;">Accountant</span>
+              <p style="text-align:justify; font-family:sans-serif;">Mani has extensive global experience in business leadership, operations,
+                strategy and finance in the internet and financial services sectors in over 30
+                countries. Mani has held executive-level roles in companies such as Citigroup.
+              </p>
+          </div>
+            <div class="team_member  ml-3 mb-5" style="background-color:gainsboro;">
+               <div class="member_img">
+                 <img src="{% static 'images/team2.png'%}" alt="our_team">
+                 <div class="social_media">
+                   <div class="facebook item"><i class="fab fa-facebook-f"></i></div>
+                   <div class="twitter item"><i class="fab fa-twitter"></i></div>
+                   <div class="instagram item"><i class="fab fa-instagram"></i></div>
+                 </div>
+              </div>
+              <h3 style="color:mediumblue;font-weight:700;">Harry dickens</h3>
+              <span style="color:navy;font-weight:600;">Product Manager</span>
+              <p style="text-align:justify; font-family:sans-serif;">Harry comes with close to two decades of experience in building and growing
+                organizations. He specializes in creating result oriented and metric driven HR
+                processes and teams, that are guided by the principles of customer centricity.
+              </p>
+          </div>
+            <div class="team_member  ml-3 mb-5" style="background-color:gainsboro;">
+               <div class="member_img">
+                 <img src="{% static 'images/team3.png'%}" alt="our_team">
+                 <div class="social_media">
+                   <div class="facebook item"><i class="fab fa-facebook-f"></i></div>
+                   <div class="twitter item"><i class="fab fa-twitter"></i></div>
+                   <div class="instagram item"><i class="fab fa-instagram"></i></div>
+                 </div>
+              </div>
+              <h3 style="color:mediumblue;font-weight:700;">Sammy louise</h3>
+              <span style="color:navy;font-weight:600;">Business Agent</span>
+              <p style="text-align:justify; font-family:sans-serif;">Sammy has extensive experience in Mergers and Acquisition, Investor Relations,
+                Business Partnering, Financial Planning and Analysis, Capital Structuring and
+                Risk Management. In his last stint, Vikas was Head of Finance, iTrust Financial.
+              </p>
+          </div>  
+        </div>
+    </div>
+
+    <div class="row text-center m-3 p-5"> <!--Our agents row starts here-->
+        <div class="col-md-12 text-center mb-4 mt-2">
+            <h1 style="color:midnightblue">Our Agents</h1>
+        </div>
+        <div class="col-md-3 text-center mb-2">
+            <div class="card shadow shadow-lg">
+                <div class="card-body">
+                    <img src="{% static 'images/a1.jpg'%}" alt="" style=" border-radius: 100%; height: 110px;width: 110px;"> 
+                       <h3>Milani Mou</h3>
+                       <p>Business Agent</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 text-center mb-2">
+            <div class="card shadow shadow-lg">
+                <div class="card-body">
+                    <img src="{% static 'images/a2.jpg'%}" alt="" style=" border-radius: 100%; height: 110px;width: 110px;"> 
+                       <h3>Halim Yoka</h3>
+                       <p>Business Agent</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 text-center mb-2">
+            <div class="card shadow shadow-lg">
+                <div class="card-body">
+                    <img src="{% static 'images/a3.jpg'%}" alt="" style=" border-radius: 100%; height: 110px;width: 110px;"> 
+                       <h3>Dalim Karma</h3>
+                       <p>Business Agent</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 text-center mb-2">
+            <div class="card shadow shadow-lg">
+                <div class="card-body">
+                    <img src="{% static 'images/a4.jpg'%}" alt="" style=" border-radius: 100%; height: 110px;width: 110px;"> 
+                       <h3>Micky</h3>
+                       <p>Business Agent</p>
+                </div>
+            </div>
+        </div>
+    </div> <!--Our agents row ends here-->
+
+    <div class="row" > <!--collapsible row "more" btn with id="#abc" starts here-->
+        <div class="col-md-12 text-center">
+            <button class="btn btn-outline-primary rounded-pill" data-toggle="collapse" data-target="#abc" style="border:2px solid #8c7ae6;width:20%; height:15; font-weight:bold; font-size:20px;">More...</button>
+        </div>
+    </div> <!--collapsible row "more" btn with id="#abc" ends here-->
+
+    <div id="abc" class="row mt-5 collapse"> <!--collapsible row with id="abc" starts here-->
+        <div class="col-md-3 text-center mb-2">
+            <div class="card shadow shadow-lg">
+                <div class="card-body">
+                    <img src="{% static 'images/fdbk1.jpg'%}" alt="" style=" border-radius: 100%; height: 110px;width: 110px;"> 
+                       <h1>Mr Aman</h1>
+                       <p>Business Agent</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 text-center mb-2">
+            <div class="card shadow shadow-lg">
+                <div class="card-body ">
+                    <img src="{% static 'images/fdbk2.jpg'%}" alt="" style=" border-radius: 100%; height:110px;width: 110px;"> 
+                       <h1>Neeraj sharma</h1>
+                       <p>Business Agent</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 text-center mb-2">
+            <div class="card shadow shadow-lg">
+                <div class="card-body">
+                    <img src="{% static 'images/fdbk3.jpg'%}" alt="" style=" border-radius: 100%; height: 110px;width: 110px;"> 
+                       <h1>Anu Arora</h1>
+                       <p>Business Agent</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 text-center mb-2">
+            <div class="card shadow shadow-lg">
+                <div class="card-body ">
+                    <img src="{% static 'images/fdbk4.jpg'%}" alt="" style=" border-radius: 100%; height: 110px;width: 110px;"> 
+                       <h1>Anamika</h1>
+                       <p>Business Agent</p>
+                </div>
+            </div>
+        </div>
+    </div> <!--collapsible row with id="abc" ends here-->
+
+
+    <div class="row mt-5"> <!--what peopl say row starts here-->
+        <div class="col-md-12 text-center">
+            <h1 style="font-size: 35px; color:midnightblue;">What People Say</h1>
+            <h6 style="color:navy;">OUR CUSTOMERS LOVE US.!!!</h6>
+        </div>
+    </div> <!--what peopl say row rnds here-->
+
+    <div class="row mt-3">
+        <div class="col-md-3 mb-2"></div>
+        <div class="col-md-2">
+            <img src="{% static 'images/a2.jpg'%}" alt="" data-toggle="collapse" data-target="#ab"  style=" border-radius: 100%; height: 110px;width: 110px;">
+        </div>
+        <div class="col-md-2 mb-2">
+            <img src="{% static 'images/a3.jpg'%}" alt="" data-toggle="collapse" data-target="#abcd" style=" border-radius: 100%; height: 110px;width: 110px;">
+        </div>
+        <div class="col-md-2 mb-2">
+            <img src="{% static 'images/a4.jpg'%}" alt=""  data-toggle="collapse" data-target="#abce" style=" border-radius: 100%; height: 110px;width: 110px;">
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+
+    <div class="row mt-5"> <!--collapsible row starts here-->
+        <div class="col-md-12 text-center collapse" id="ab">
+        <h3>- Anu Nair </h3>
+        <small style="color:blue;">Excellent Service</small>
+        <p>Excellent service and an equally involved team. I opted for the Relax plan and got a good deal on my property.<br>Highly recommended app</p>
+        </div>
+
+        <div class="col-md-12 text-center collapse" id="abcd">
+        <h3>JOHAN DOE</h3>
+        <small style="color:blue;">Helps us to find good properties</small>
+        <p>The site really helps us to find good properties in the least amount of time without any headache of brokerage.<br> I was new and had no time. But then I found NoBroker. It is simply a ...</p>
+        </div>
+
+        <div class="col-md-12 text-center collapse" id="abce">
+        <h3>- Shubham Raibhandar </h3>
+        <small style="color:blue;">Best Option</small>
+        <p>The service was great and very professional. I went with the Relax plan.<br>My RM Sayantan Gupta is really efficient. I shortlisted one from them and in just one visit, I was able to finalize ...</p>
+        </div>
+    </div> <!--collapsible row ends here-->
+
+    <div class="row mt-5 mb-5" style="background-color:sandybrown; height:250px;"> <!--Add property row starts-->
+        <div class="col-md-6 mt-5">
+            <p class="text-light ml-5 mr-5" style="font-size:30px; font-weight:bold;">Add Property For Sale Or Rent</p>
+        </div>
+        
+        <div class="col-md-3 mt-5">
+                <a href="{% url 'add_property' %}">
+                    <button type="button" class="btn text-dark p-2 rounded-pill btn-outline-light" style="font-size:20px;">
+                        <b>ADD PROPERTY</b>
+                    </button>
+                </a>
+        </div>
+
+        <div class="col-md-3 mt-5">
+            <p class="text-light" style="font-size:25px; font-weight:bold;">+10 637 367 4563</p>
+        </div>
+      
+        
+    </div> <!--Add property row ends here-->
+
+    
+</div> <!--end of container-->
+
+
+{% endblock %}

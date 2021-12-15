@@ -1,0 +1,264 @@
+{% extends "base.html" %}
+{% load static %}
+{% block head %}
+    <style>
+        .bg-img{
+            background:url('/static/images/abt.png'); background-size: 100% 100%; height:400px;
+        }   
+        
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Exo 2', sans-serif;
+          }
+            
+          .wrapper{
+            margin-top: 60px;
+            text-align: center;
+          }
+          
+          .wrapper h1{
+            font-family: 'Yatra One', cursive;
+            font-size: 48px;
+            color: #fff;
+            margin-bottom: 25px;
+          }
+          
+          .our_team{
+            width: auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+          }
+          
+          .our_team .team_member{
+            width: 250px;
+            margin: 5px;
+            background: #fff;
+            padding: 20px 10px;
+          }
+          
+          .our_team .team_member .member_img{
+            background: #e9e5fa;  
+            max-width: 190px;
+            width: 100%;
+            height: 190px;
+            margin: 0 auto;
+            border-radius: 50%;
+            padding: 5px;
+            position: relative;
+            cursor: pointer;
+          }
+          
+          .our_team .team_member .member_img img{
+            width: 100%;
+            height: 100%;
+          }
+          
+          .our_team .team_member h3{
+            text-transform: uppercase;
+            font-size: 18px;
+            line-height: 18px;
+            letter-spacing: 2px;
+            margin: 15px 0 0px;
+          }
+          
+          .our_team .team_member span{
+            font-size: 10px;
+          }
+          
+          .our_team .team_member p{
+            margin-top: 20px;
+            font-size: 14px;
+            line-height: 20px;
+          }
+          
+          .our_team .team_member .member_img .social_media{
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            background: rgba(0,0,0,0.65);
+            width: 95%;
+            height: 95%;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: scale(0);
+             transition: all 0.5s ease;
+          }
+          
+          .our_team .team_member .member_img .social_media .item{
+            margin: 0 10px;
+          }
+          
+          .our_team .team_member .member_img .social_media .fab{
+            color: #8c7ae6;
+            font-size: 20px;
+          }
+          
+          .our_team .team_member .member_img:hover .social_media{
+            transform: scale(1);
+          }
+    </style>
+{% endblock %}
+
+{% block myblock %}
+  <div class="container-fluid">
+      <div class="row mb-5">
+        <div class="col-md-12 bg-img py-5 text-center text-light">
+            <section class="h-100" style="background:rgba(0,0,0,0.3);">
+                <h1 class="text-center text-light p-3">About Us</h1>
+                <h6 class="text-center text-light"><a href="{% url 'home' %}" class="text-light"><i class="fas fa-home mr-1 text-primary"></i>Home</a> &gt; About Us</h6>
+            </section>
+        </div>
+      </div>
+
+      <div class="row mb-5" style="margin-top:90px;">
+          <div class="col-md-6 ml-5">
+              <h2>Buy Or Sell Your House In Few<br> Seconds With <span style="color:cornflowerblue;">Maaxen</span>.</h2>
+              <hr>
+              <p class="text-muted" style="font-weight:initial;">We are the fastest growing company in the online real estate space. Born out of the need to simplify the search for a home, free of fake listings and endless site visits, we created a unique property search platform that filled the gaps left by others in the market. Led by passionate problem-solvers, and backed by top investors from around the world, we are poised to become the most trusted place to find a home in India.</p>
+          </div>
+          <div class="col-md-5 ml-5">
+            <h1 style="color:cornflowerblue;">Our Mission</h1><hr>
+            <p class="mr-5 mt-4 text-muted" style="font-weight:initial;">To be the first choice for our consumers and partners in their journey of discovering, renting, buying, selling and financing a home. We do that with data, design, technology, and above all the passion of our people, while delivering value to our shareholders.</p>
+          </div>
+      </div>
+
+      <div class="row">
+          <div class="col-md-6 ml-5">
+              <h1 >Why Are We Different<br>From The <span style="color:cornflowerblue;">Others.!!!</span></h1> <hr>
+              <p class="mr-5 mt-4 text-muted" style="font-weight:initial;">As technology leaders, we always strive to create an unmatched experience for our customers through a robust platform. Our new campaign ‘Ghar Dhoondna Koi Inse Seekhe’ celebrates the increasing participation of women in the home search and at the same time, showcases Housing.com's Smart Search Technology, that enables the users to find their dream home by providing in-depth information in a structured and effortless manner.</p>
+              <p class="mr-5 mt-4 text-muted" style="font-weight:initial;">To be the first choice for our consumers and partners in their journey of renting, buying, selling and financing a home. We do that with data, design, technology, & above all passion of our people, while delivering value to our shareholders.</p> 
+          </div>
+
+          <div class="col-md-5 ml-5">
+              <div class="jumbotron">
+                  <p><i class="fas fa-check-circle text-primary mr-1"></i>We Provide Innovative Solutions With The Best</p>
+                  <p><i class="fas fa-check-circle text-primary mr-1"></i>We Offer Our Clients Support In Destination</p>
+                  <p><i class="fas fa-check-circle text-primary mr-1"></i>Promoting Unique Story Each Destination</p>
+                  <p><i class="fas fa-check-circle text-primary mr-1"></i>Strong Partnerships With International Agencies</p>
+                  <p><i class="fas fa-check-circle text-primary mr-1"></i>Helping Local Small Business Reaching Their Goalss</p>
+                  <p><i class="fas fa-check-circle text-primary mr-1"></i>Complete Service Including Strategic Planning</p>
+              </div>
+          </div>
+      </div>
+
+      <div class="wrapper" style="background-color:whitesmoke;" >
+        <h1 style="color:midnightblue;">Our Team</h1>
+        <div class="our_team">
+            <div class="team_member ml-3 mb-5" style="background-color:gainsboro;">
+              <div class="member_img">
+                 <img src="{% static 'images/team4.png'%}" alt="our_team">
+                <div class="social_media">
+                   <div class="facebook item"><i class="fab fa-facebook-f"></i></div>
+                   <div class="twitter item"><i class="fab fa-twitter"></i></div>
+                   <div class="instagram item"><i class="fab fa-instagram"></i></div>
+                 </div>
+              </div>
+              <h3 style="color:mediumblue; font-weight:700;">John wright</h3>
+              <span style="color:navy; font-weight:600;">CEO</span>
+            </div>
+            <div class="team_member  ml-3 mb-5" style="background-color:gainsboro;">
+               <div class="member_img">
+                 <img src="{% static 'images/team1.png'%}" alt="our_team">
+                 <div class="social_media">
+                   <div class="facebook item"><i class="fab fa-facebook-f"></i></div>
+                   <div class="twitter item"><i class="fab fa-twitter"></i></div>
+                   <div class="instagram item"><i class="fab fa-instagram"></i></div>
+                 </div>
+              </div>
+              <h3 style="color:mediumblue;font-weight:700;">Mani mori</h3>
+              <span style="color:navy;font-weight:600;">Accountant</span>  
+          </div>
+            <div class="team_member  ml-3 mb-5" style="background-color:gainsboro;">
+               <div class="member_img">
+                 <img src="{% static 'images/team2.png'%}" alt="our_team">
+                 <div class="social_media">
+                   <div class="facebook item"><i class="fab fa-facebook-f"></i></div>
+                   <div class="twitter item"><i class="fab fa-twitter"></i></div>
+                   <div class="instagram item"><i class="fab fa-instagram"></i></div>
+                 </div>
+              </div>
+              <h3 style="color:mediumblue;font-weight:700;">Harry dickens</h3>
+              <span style="color:navy;font-weight:600;">Product Manager</span>
+          </div>
+            <div class="team_member  ml-3 mb-5" style="background-color:gainsboro;">
+               <div class="member_img">
+                 <img src="{% static 'images/team3.png'%}" alt="our_team">
+                 <div class="social_media">
+                   <div class="facebook item"><i class="fab fa-facebook-f"></i></div>
+                   <div class="twitter item"><i class="fab fa-twitter"></i></div>
+                   <div class="instagram item"><i class="fab fa-instagram"></i></div>
+                 </div>
+              </div>
+              <h3 style="color:mediumblue;font-weight:700;">Sammy louise</h3>
+              <span style="color:navy;font-weight:600;">Business Agent</span>
+          </div>  
+        </div>
+      </div>
+
+      <div class="row mt-5">
+          <div class="col-md-12 mb-3">
+              <h1 class="text-center" style="text-bold">Meet Our Agents</h1>
+              <p class="text-muted text-center">We help you to grow business with More than 25 years experience with these<br> services.</p>
+          </div>
+          <div class="card col-md-3">
+            <img class="card-img-top" src="{% static 'images/2.png'%}" height="350px" width="80%" alt="Card image"> 
+            <div class="card-body">
+                <h4 class="text-center" style="font-weight:bold;">Arafa Sherief</h4>
+                <p class="card-text text-center">4 properties</p>
+                <hr>
+            </div>   
+          </div>
+
+          <div class="card col-md-3">
+            <img class="card-img-top" src="{% static 'images/3.png'%}" height="350px" width="80%" alt="Card image"> 
+            <div class="card-body">
+                <h4 class="text-center" style="font-weight:bold;">Marco Ghaly</h4>
+                <p class="card-text text-center">6 properties</p>
+                <hr>
+            </div>   
+          </div>
+
+          <div class="card col-md-3">
+            <img class="card-img-top" src="{% static 'images/4.png'%}" height="350px" width="80%" alt="Card image"> 
+            <div class="card-body">
+                <h4 class="text-center" style="font-weight:bold;">Dalim Karma</h4>
+                <p class="card-text text-center">3 properties</p>
+                <hr>
+            </div>   
+          </div>
+
+          <div class="card col-md-3">
+            <img class="card-img-top" src="{% static 'images/fdbk.webp'%}" height="350px" width="80%" alt="Card image"> 
+            <div class="card-body">
+                <h4 class="text-center" style="font-weight:bold;">Sherief Arafa</h4>
+                <p class="card-text text-center">2 properties</p>
+                <hr>
+            </div>   
+          </div>
+      </div>
+
+      <div class="row mt-5 mb-5" style="background-color:sandybrown; height:250px;"> <!--Add property row starts-->
+        <div class="col-md-6" style="margin-top:100px;">
+            <p class="text-light ml-5 mr-5" style="font-size:30px; font-weight:bold;">Add Your Property For Sale Or Rent</p>
+        </div>
+        <div class="col-md-3" style="margin-top:100px;">
+            <p class="text-light ml-5" style="font-size:25px; font-weight:bold;">+10 637 367 4567</p>
+        </div>
+        <div class="col-md-3" style="margin-top:100px;">
+                <a href="{% url 'add_property' %}">
+                    <button type="button" class="btn text-dark p-2 rounded-pill btn-outline-light" style="font-size:20px;">
+                        <b>ADD PROPERTY</b>
+                    </button>
+                </a>
+        </div>
+    </div> <!--Add property row ends here-->
+  </div>
+ 
+
+
+{% endblock %}

@@ -1,0 +1,163 @@
+  {% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+    <style>
+
+
+    </style>
+{% endblock %}
+
+{% block myblock %}
+<div class="container-fluid" style="background-color: cornsilk;">
+    <div class="row mt-1">
+        <div class="col-md-6 jumbotron mx-auto">
+            <h2 style="font-weight:bold;" class="mt-4">Sell or Rent your Property</h2>
+            <p class="text-success"><strong>We've over 15 Lac buyers and tenants for you!</strong></p>
+            <div class="jumbotron p-4" style="background-color:cornsilk;">
+                <h4>You are posting this property for <strike>
+                   <span>&#8377; 2000 </span></strike><span class="bg-warning text-dark"> FREE!!</span>
+                </h4>
+                <p><i class="fas fa-check-square bg-success"></i> Free Professional Photoshop</p>
+                <p><i class="fas fa-check-square bg-success"></i> Get Contact Details of upto 5 Responses</p>
+                <p><i class="fas fa-check-square bg-success"></i> Access to <b>15 lac</b> Buyers and Tenants</p>
+            </div>
+
+
+            <form action="">
+                <div class="form-group mb-4">
+                    <h4 class="mb-3 mt-1">Personal Details</h4>
+                    <span><b>I am </b> &nbsp;&nbsp;&nbsp;&nbsp;</span>
+                         <div class="form-check-inline">
+                           <label class="form-check-label" for="radio1">
+                             <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Owner
+                           </label>
+                         </div>
+                         <div class="form-check-inline">
+                           <label class="form-check-label" for="radio2">
+                             <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Agent
+                           </label>
+                         </div>
+                         <div class="form-check-inline">
+                           <label class="form-check-label" for="radio3">
+                             <input type="radio" class="form-check-input" id="radio3" name="optradio" value="option3">Builder
+                           </label>
+                         </div> 
+                </div>
+
+
+
+                <div class="form-group mb-4">
+                    <h4 class="mb-3">Property Details</h4>
+                    <span><b>For </b> &nbsp;&nbsp;&nbsp;&nbsp;</span>
+                          <div class="form-check-inline">
+                            <label class="form-check-label" for="rdo1">
+                              <input type="radio" class="form-check-input" id="rdo1" name="optnradio" value="option1" checked>Sale
+                            </label>
+                          </div>
+                          <div class="form-check-inline">
+                            <label class="form-check-label" for="rdo2">
+                              <input type="radio" class="form-check-input" id="rdo2" name="optnradio" value="option2">Rent
+                            </label>
+                          </div>
+                          <div class="form-check-inline">
+                            <label class="form-check-label" for="rdo33">
+                              <input type="radio" class="form-check-input" id="rdo33" name="optnradio" value="option3">PG/Hostel
+                            </label>
+                          </div> 
+                </div>
+
+
+                <div class="form-group mb-4">
+                    <label for="proprty_typ">Property Type : </label>
+                           <select class="form-control" id="proprty_typ" name="proprty">
+                             <option>---Select Property Type---</option>
+                             <option>Residential House</option>
+                             <option>Multistorey Apartment</option>
+                             <option>Villa</option>
+                             <option>Residential Plot</option>
+                             <option>Penthouse</option>
+                             <option>Builder Floor Apartment</option>
+                             <option>Studio Apartment</option>
+                             <option>Commercial Office Space</option>
+                             <option>Warehouse/Godown</option>
+                             <option>Commercual Showroom</option>
+                             <option>Industrial Building</option>
+                           </select>
+                    <br>
+               </div>
+
+
+            <div class="form-group mb-4">
+                <h4 class="mb-3"><b>Property Location </b></h4>
+                <label for="proprty_loctn">State : </label>
+                           <select class="form-control" id="proprty_loctn" name="pr_loctn" placeholder="---Select State---">
+                             <option>---Select State---</option>
+                             <option>Andaman & Nicobar</option>
+                             <option>Andhra Pradesh</option>
+                             <option>Arunachal Pradesh</option>
+                             <option>Assam</option>
+                             <option>Bihar</option>
+                             <option>Chandigarh</option>
+                             <option>Chhattissgarh</option>
+                             <option>Dadra & Nagar Haveli</option>
+                             <option>Daman & Diu</option>
+                             <option>Delhi NCR</option>
+                             <option>Goa</option>
+                             <option>Gujarat</option>
+                             <option>Haryana</option>
+                             <option>Himachal Pradesh</option>
+                             <option>Jammu & Kashmir</option>
+                             <option>Jharkhand</option>
+                             <option>Karnataka</option>
+                             <option>Kerala</option>
+                             <option>Lakshadweep</option>
+                             <option>Madhya Pradesh</option>
+                             <option>Maharashtra</option>
+                             <option>Manipur</option>
+                             <option>Meghalaya</option>
+                             <option>Mizoram</option>
+                             <option>Nagaland</option>
+                             <option>Odisha/Orissa</option>
+                             <option>Pondicherry</option>
+                             <option>Punjab</option>
+                             <option>Rajasthan</option>
+                             <option>Sikkim</option>
+                             <option>Tamilnadu</option>
+                             <option>Tripura</option>
+                             <option>Uttar Pradesh</option>
+                             <option>Uttarakhand</option>
+                             <option>West Bengal</option>
+                           </select>
+                    <br>
+            </div>
+
+            <div class="form-group mb-5">
+                <label for="loclity">Locality : </label>
+                <input type="text" class="form-control" placeholder="Enter Locality" id="loclity" >
+            </div>
+
+            <div class="form-group mb-5">
+                <input type="submit" value="Login & Post Property" class="btn btn-danger text_light">
+            </div>
+        </form>
+
+
+        <div class="jumbotron" style="background-color: cornsilk;">
+            <h2 class="mb-2"><b>Looking to Sell or Rent your Flat?</b></h2>
+            <p>Do you want to Sell your flat or put your house on rent? 
+               Flatchat has the right solution for you. Your advertisement 
+               will be viewed by millions of buyers and tenants in India. Flatchat
+               provides you the best classified for your requirement. Our website 
+               offers one free property ad that you can use for selling or renting . 
+               You will be able to sell or rent every real estate property from flat 
+               or house to land , even commercial property fast and immediately.
+            </p>
+        </div>
+
+    </div> <!--End of col-md-7 Section-->
+    </div>
+</div>
+
+
+{% endblock %}

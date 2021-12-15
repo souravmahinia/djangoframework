@@ -1,0 +1,55 @@
+{% extends "dashboard_base.html" %}
+{% block head %}
+<style>
+    th{
+        font-weight:bold; color:white;
+    }
+    td{
+        color:white; font-weight: 500;
+    }
+</style>
+{% endblock %}
+{% block dashboard %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 mx-auto py-4">
+            <div class="card">
+                <div class="card-header" style=" background-color:navy">
+                    <h2 class="text-center" style="font-weight:bold; color:white; font-family:'Times New Roman', Times, serif">User Details</h2>
+                </div>
+
+                <div class="card-body" style="background-color:navy">
+                    <table class="table table-bordered table-striped table-hover">
+                        <tbody>
+                            <tr>
+                                <th>User ID</th>
+                                <td>{{user.id}}</td>
+                            </tr>
+
+                            <tr>
+                                <th>Username</th>
+                                <td>{{user.username}}</td>
+                            </tr>
+
+                            <tr>
+                                <th>Full Name</th>
+                                <td>{{user.first_name}} {{user.last_name}}</td>
+                            </tr>
+
+                            <tr>
+                                <th>Last Login</th>
+                                <td>{{user.last_login}}</td>
+                            </tr>
+
+                            <tr>
+                                <th>Joining Date</th>
+                                <td>{{user.date_joined}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

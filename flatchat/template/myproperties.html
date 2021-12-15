@@ -1,0 +1,73 @@
+{% extends "dashboard_base.html" %}
+{% block head %}
+<style>
+    h2.modal-title{
+        margin: auto;
+        }
+</style>
+{% endblock %}
+{% block dashboard %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 mt-3">
+            <h4 class="alert alert-white text-secondary" style="text-align:left; box-shadow:0px 0px 8px lightgray;"><i class="fas fa-home mr-1 text-primary"></i> My Posted Properties <span style="color:cornflowerblue;"> ({{properties|length}})</span>
+                <span><button class="btn btn-outline-primary float-right mb-1" style="font-weight:bold; font-size:18px; margin-right:70px;"><i class="fas fa-cogs mr-2  text-danger"></i>Action</button></span>
+            </h4>  
+        </div>
+    </div>
+
+    <div class="row">
+        {% for p in properties %}
+        <div class="col-md-4 mb-4">
+            <img src="/media/{{p.property_image1}}" alt="" style="height:130px; width:100%;">
+        </div>
+        <div class="col-md-5 mb-4">
+            <h5>Beautiful Single Home</h5>
+            <p><i class="fas fa-map-marker-alt mr-1"></i>{{p.property_name}}</p>
+            <p><i class="fas fa-calendar-alt mr-1"></i>{{p.added_on}}</p>
+        </div>
+        <div class="col-md-3 mb-4">
+            <p>
+                <button class="btn" data-toggle="modal" data-target="#m{{p.id}}"><i class="fa fa-eye text-success mr-3"></i></button>
+                <a href="{% url 'update_property' %}?pid={{p.id}}" ><i class="fa fa-edit text-primary mr-3"></i></a>
+                <a href="{% url 'delete_property' %}?pid={{p.id}}"><i class="fa fa-trash text-danger mr-3"></i></a>
+            </p>
+        </div>
+
+        <div class="modal fade" id="m{{p.id}}">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+               <div class="modal-content">
+                   <div class="modal-header" style="background-color:mintcream; color:rosybrown;">
+                       <h2 class="modal-title" style="font-family:lobster;">
+                           <a href="{% url 'single_property' %}?pid={{p.id}}">{{p.property_name}}</a>
+                        </h2>
+                       <button type="button" class="close" data-dismiss="modal">&times;</button>
+                   </div>
+                   <div class="modal-body">
+                       <img src="/media/{{p.property_image1}}" alt="" style="height:150px; width:100%;">
+                       <p style="font-weight:bold; font-size:15px;">({{p.property_type.cat_name}})</p>
+                       <p style="font-size:18px;">
+                           <del><span style="font-weight:bold;">&#8377; {{p.property_price}}</span></del>
+                           <strong><span style="background-color:gold;">&#8377; {{p.booking_amount}}</span></strong>
+                       </p>
+                       <p>
+                           <span class="mr-5" style="font-weight:bold;"><i class="fas fa-bed mr-1"></i>{{p.no_of_bedrooms}}+ Beds</span>
+                           <span class="mr-5" style="font-weight:bold;"><i class="fas fa-bath mr-1"></i>{{p.no_of_bathrooms}}+ Baths</span>
+                           <span class="mr-5" style="font-weight:bold;"><i class="fas fa-sync-alt mr-1"></i>{{p.area}} sq.ft</span>
+                       </p>
+                       <p style="color:darkslategray; font-weight:initial; text-align:justify;">{{p.description}}</p>
+                   </div>
+               
+                   <div class="modal-footer">
+                       <a href="{% url 'single_property' %}?pid={{p.id}}" class="btn btn-success">
+                           View Details
+                       </a>
+                       <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                   </div>
+               </div>
+            </div>
+           </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

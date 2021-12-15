@@ -1,0 +1,31 @@
+{% extends "dashboard_base.html" %}
+{% load static %}
+{% block head %}
+<style>
+    label{
+        font-size:17px; font-weight:bold; color:darkslategrey;
+    } 
+</style>
+
+{% endblock%}
+{% load bootstrap4 %}
+{% block dashboard %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-7 mx-auto bg-light">
+            <h1 class="text-center m-2" style="color:steelblue; font-family:lobster;">ADD PROPERTY</h1>
+            <hr>
+            {% if msz %}
+            <div class="alert {{col}} text-center" style="font-size:18px; font-weight:bold;">{{msz}}</div>
+            {% endif %}
+
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                <input type="submit" value="ADD PROPERTY" class="btn btn-primary m-2 btn-block p-2">
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

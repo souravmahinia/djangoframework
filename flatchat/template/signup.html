@@ -1,0 +1,204 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+
+    {% if status%}
+      <script>
+        alert("{{status}}");
+        window.location="/"
+      </script>
+    {% endif %}
+
+    <style>
+        label{
+            font-size:17px; font-weight:bold; color:darkslategrey;
+        } 
+        form .row{
+            margin-top:2%;
+        }
+    </style>
+
+{% endblock %}
+
+{% block myblock %}
+ 
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6" style="background:url('{% static "images/h8.jpg" %}');
+         border-right:6px solid white; background-color:salmon; background-size:cover;">
+         <div class="h-100" style="background:rgba(0,0,0,0.2);"></div>
+        </div>
+    
+        <div class="col-md-6">
+            <h3 style="font-family:lobster; box-shadow: 0px 0px 10px cornflowerblue; font-size:25px;" class="mt-3 p-1 text-center">Fill Your Details Below...</h3>
+            <form action="" method="post">
+                {% csrf_token %}
+                
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="fname">First Name : </label>
+                            <input type="text" class="form-control" placeholder="Enter First name" id="fname" name="first" required>
+                        </div>
+    
+                        <div class="col-md-6">
+                            <label for="lname">Last name : </label>
+                            <input type="text" class="form-control" placeholder="Enter Last name" id="lname" name="last" required>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <div class="form-group">
+                    <p id="result" style="font-weight:bold;"></p>
+                </div>
+    
+                <div class="form-group">
+                    <label for="username">Username : </label>
+                    <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fa fa-user" style="color:cornflowerblue;"></i></span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Username" id="username" required name="uname"
+                    pattern="[,A-Z,a-z]{4,}" title="Username must contain lowercase and atleast 4 characters" onkeyup="checkuser()">
+                    </div>
+                </div>
+    
+                <div class="form-group">
+                    <label for="pwd">Enter password : </label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-lock" style="color:cornflowerblue;"></i></span>
+                        </div>
+                        <input type="password" onkeyup="validd()" class="form-control" id="pwd" placeholder="Password" name="password" required
+                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                        title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters">
+                        <div class="input-group-append">
+                            <span class="input-group-text"><i class="fas fa-eye text-primary" id="eye"></i></span>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="form-group">
+                    <label for="cpwd">Confirm Passsword</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-lock" style="color:cornflowerblue;"></i></span>
+                        </div>
+                        <input type="password" onkeyup="validd()" class="form-control" id="cpwd" placeholder="Confirm Password" name="cpassword" required
+                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                        title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters">
+                    </div>
+                   
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Enter Email : </label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-envelope" style="color:cornflowerblue;"></i></span>
+                        </div>
+                    <input type="email" class="form-control" placeholder="Enter email" id="email" name="email" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="cntct">Contact Number</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-phone" style="color:cornflowerblue;"></i></span>
+                        </div>
+                    <input type="number" class="form-control" placeholder="Enter Mobile Number" id="cntct" name="contact" required
+                    title="Phone Number must contain atleast 10 digits.!!!" pattern="[0-9]{10}">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="utyp">User Type</label>
+                    <select name="utype" class="form-control" id="utyp">
+                        <option value="cust">I am a Customer</option>
+                        <option value="sell">I am a Seller</option>
+                    </select>
+                </div>
+    
+                <div class="row mb-1">
+                    <div class="col-md-6 mt-2">
+                        <input type="submit" value="LOGIN" id="submitbtn" class="btn btn-primary rounded-pill btn-block p-2">
+                    </div>
+    
+                    <div class="col-md-6 mt-2">
+                        <input type="reset" value="RESET" class="btn btn-primary rounded-pill btn-block p-2" >
+                    </div>
+                </div>
+            </form>
+            
+        </div>
+    </div>
+    
+</div>
+
+<script>
+    function checkuser(){
+        let un = document.getElementById("username").value;
+        $.ajax({
+            url:"{% url 'check_user' %}",
+            type:"get",
+            data:{usern:un},
+            success:function(data){
+                if(data=="Exists"){
+                    $("#result").html("This username already exists.!!!").addClass("text-danger");
+                    $("#username").removeClass("alert alert-success").addClass("alert alert-danger")
+                    $("#username").css("border","1px solid red");
+                    $("#submitbtn").attr("disabled","disabled");
+                }
+                else{
+                    $("#result").html("");
+                    $("#username").css("border","1px solid green");
+                    $("#username").removeClass("alert alert-danger").addClass("alert alert-success")
+                    $("#submitbtn").removeAttr("disabled");
+                }
+
+            }
+        })
+    }
+</script>
+
+<script>
+    function validd(){
+        let p = $("#pwd").val()
+        let cp = $("#cpwd").val()
+
+        if(p==cp){
+            $("#pwd").css("border","1px solid green");
+            $("#cpwd").css("border","1px solid green");
+            $("#pwd").removeClass("alert alert-danger").addClass("alert alert-success")
+            $("#cpwd").removeClass("alert alert-danger").addClass("alert alert-success")
+            $("#submitbtn").removeAttr("disabled");
+        }
+        else{
+            $("#pwd").css("border","1px solid red");
+            $("#cpwd").css("border","1px solid red");
+            $("#pwd").removeClass("alert alert-success").addClass("alert alert-danger")
+            $("#cpwd").removeClass("alert alert-success").addClass("alert alert-danger")
+            $("#submitbtn").attr("disabled","disabled");
+        }
+    }
+   
+    $(function(){
+        $('#eye').click(function(){            
+              if($(this).hasClass('fa-eye-slash')){               
+                $(this).removeClass('fa-eye-slash');               
+                $(this).addClass('fa-eye');               
+                $('#pwd').attr('type','text');              
+              }
+              else{
+                $(this).removeClass('fa-eye');
+                $(this).addClass('fa-eye-slash');  
+                $('#pwd').attr('type','password');
+              }
+          });
+      });
+</script>
+
+{% endblock %}

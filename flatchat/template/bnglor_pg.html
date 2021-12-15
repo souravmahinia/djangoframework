@@ -1,0 +1,506 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+    <style>
+        a:hover{
+            color:black;
+        }
+        a{
+            
+            color:black; text-decoration:underline;
+        }
+        .section{
+            text-decoration:none; font-weight:bold; font-size:15px; color:darkslategray;
+        }
+        .section:hover{
+            color:crimson; text-decoration:none;
+        }
+        .row{
+            background-color: gainsboro;
+        }
+    </style>
+{% endblock %}
+
+{% block myblock %}
+
+<div class="container-fluid mt-1"> <!--start of container-->
+    <div class="row" style="background-color: floralwhite;"> <!--start of row1-->
+        <div class="col-md-2">
+            <p>Rent/Bed</p>
+            <p><b>&#8377; 6000 </b>Onwards</p>
+        </div> <hr/>
+        <div class="col-md-6">
+            <p>Parthvi PG/Paying Guest For Ladies</p>
+            <p class="text-secondary"><a href="#">in Mahadevpura </a></p>
+            <p class="text-secondary">Occupancy Type : <a href="#">Single,</a> <a href="#">Double,</a> <a href="#">Triple &nbsp;</a> 
+                <span class="text-dark text-center" style="background-color:lightgray; font-weight:normal;">For Girls &nbsp;&nbsp;</span>
+                <span class="text-dark text-center" style="background-color:lightgray; font-weight:normal;">All Preffered</span>
+            </p>
+            <hr/>
+        </div>
+        <div class="col-md-4">
+            <p style="color:darkslategray">Posted By : <b>Owner Mudduul Reddy</b></p>
+            <p>
+                <button type="button" class="btn btn-outline-light bg-danger ml-5" data-toggle="modal" data-target="#myModal">
+                    <b>Contact Owner</b>
+                </button> 
+            </p>
+        </div> <hr/>
+
+        <div class="col-md-12">
+            <span><a href="#a1" class="mr-5 ml-4 section">Property Details</a></span>
+            <span><a href="#a2" class="mr-5 section">Occupancy Options</a></span>
+            <span><a href="#a3" class="mr-5 section">Common Area and Amenties</a></span>
+            <span><a href="#a4" class="mr-5 section">Food And Kitchen</a></span>
+            <span><a href="#a5" class="mr-5 section">Other Charges</a></span>
+            <span><a href="#a6" class="mr-5 section">House Rules</a></span>
+            <span><a href="#a7" class="mr-5 section">Locality</a></span>
+        </div>
+    </div> <!--end of row1-->
+
+    <div class="row mt-5 bg-light" id="a1"> <!--start of 2nd row-->
+        <div class="col-md-4"> <!--start of col-md-4-->
+            <div class="carousel slide" data-ride="carousel" id="mycar"> <!--start of carousel-->
+
+                    <!-- CAROUSEL INDICATORS-->
+                     <ul class="carousel-indicators">
+                         <li data-target="#mycar" data-slide-to="0" class="active"></li>
+                         <li data-target="#mycar" data-slide-to="1"></li>
+                         <li data-target="#mycar" data-slide-to="2"></li>
+                         <li data-target="#mycar" data-slide-to="3"></li>
+                         <li data-target="#mycar" data-slide-to="4"></li>
+                     </ul>
+                   <div class="carousel-inner">
+                       <div class="carousel-item active">
+                           <img src="{% static 'images/pgs_files/2.jpg'%}" height="350" width="100%">
+                           <div class="carousel-caption"></div>
+                       </div>
+
+                       <div class="carousel-item">
+                        <img src="{% static 'images/pgs_files/7.jpg'%}" height="350" width="100%">
+                       </div>
+
+                       <div class="carousel-item">
+                        <img src="{% static 'images/pgs_files/3.jpg'%}" height="350" width="100%">
+                       </div>
+
+                       <div class="carousel-item">
+                        <img src="{% static 'images/pgs_files/4.jpg'%}" height="350" width="100%">
+                       </div>
+
+                       <div class="carousel-item">
+                        <img src="{% static 'images/pgs_files/5.jpg'%}" height="350" width="100%">
+                       </div> 
+                   </div>
+
+                      <a href="#mycar" class="carousel-control-prev" data-slide="prev">
+                          <span class="carousel-control-prev-icon"></span>
+                      </a>
+
+                      <a href="#mycar" class="carousel-control-next" data-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                     </a>
+            </div> <!--carousel ends here-->
+
+        </div> <!--end of col-md-4-->
+        <div class="col-md-8">  <!--start of col-md-8-->
+            <h5>Parthiv pg for ladies, Mahadevapura, Bangalore</h5>
+            <p>Parthiv pg for ladies is the best PG for rent in mahadevpura, Bangalore situated on 1,2,3 floors. It is 1 years.</p> <hr/>
+            <div class="row bg-light"> <!--start of inner row-->
+                <div class="col-md-3" >
+                    <p class="text-secondary">Deposit Amount</p>
+                    <p>&#8377; 2000 </p> <hr/>
+                    <p class="text-secondary">Food Availability</p>
+                    <p>Both Veg & Non-Veg</p> <hr/>
+                    <p class="text-secondary">Available For</p>
+                    <p>Girls</p>
+                </div>
+                <div class="col-md-3">
+                    <p class="text-secondary">Maintenance</p>
+                    <p>&#8377; 0</p> <hr/>
+                    <p class="text-secondary">AC Rooms</p>
+                    <p>Not Available</p> <hr/>
+                    <p class="text-secondary">Preferred Tenants</p>
+                    <p>All</p>
+                </div>
+                <div class="col-md-3">
+                    <p class="text-secondary">Notice Period</p>
+                    <p>No Notice Period</p> <hr/>
+                    <p class="text-secondary">Parking</p>
+                    <p>__</p> <hr/>
+                    <p class="text-secondary">Total Number Of Beds </p>
+                    <p>51</p>
+                </div>
+                <div class="com-md-3">
+                    <p class="text-secondary">Electricity Charges</p>
+                    <p>__</p> <hr/>
+                    <p class="text-secondary">Power Backup</p>
+                    <p>Available</p> <hr/>
+                    <p class="text-secondary">Operating Since</p>
+                    <p>2019</p>
+                </div>
+
+                <div class="col-md-6 mt-4">
+                    <button type="button" class="btn btn-outline-light bg-danger btn-block" data-toggle="modal" data-target="#myModal">
+                        <b>Contact Owner</b>
+                    </button> 
+                </div> 
+                <div class="col-md-6 mt-4">
+                    <button type="button" class="btn btn-outline-light text-danger btn-block" style="background-color:lightpink;" data-toggle="modal" data-target="#myModal2">
+                        <b>Schedule Site Visit</b>
+                    </button>
+                </div>
+            </div> <!--end of inner row-->
+
+        </div> <!--end of col-md-8-->
+
+    </div> <!--end of 2nd row-->
+
+    <div class="row mt-3 mt-5" id="a2"> <!--start of 3rd row-->
+        <div class="col-md-12 mb-2">
+            <h3 class="text-center text-dark">Occupancy Options</h3>
+        </div>
+        <div class="col-md-4">
+            <div class="card p-2">
+                <img class="card-img-top" src="{% static 'images/pgs_files/singl.jpg'%}" height="220px" width="100%" alt="Card image">
+                <div class="card-body">
+                    <h4 class="card-title">Single Room</h4>
+                    <p class="card-text mb-3">
+                        <span class="text secondary mb-5" style="margin-right:100px;">Rent</span> <span><b>&#8377; 11,000 </b></span> <br>
+                        <span class="text secondary mb-5" style="margin-right:10px;">Room Dimension</span> <span><b>12ft X 10ft</b></span> <br>
+                        <span class="text secondary mb-5" style="margin-right:15px;">Rooms Available</span> <span><b>10</b></span> <br>
+                    </p>
+
+                    <h6>Amenities</h6>
+                    <p>
+                        <span class="mr-2"><i class="far fa-check-circle text-success mr-1"></i>Washroom/Toilet</span>
+                        <span class="mr-2"><i class="far fa-check-circle text-success mr-1"></i>Cupboard</span>
+                        <span class="mr-2"><i class="far fa-check-circle text-success mr-1"></i>TV</span>
+                        <span class="mr-2"><i class="far fa-check-circle text-success"></i>DTH</span>
+                    </p> 
+                    <p> 
+                        <span class="mr-2"><i class="far fa-check-circle text-success mr-1"></i>Wash Basins</span>
+                        <span class="mr-2"><i class="far fa-check-circle text-success mr-1"></i>Shower</span>
+                        <span class="mr-2"><i class="far fa-check-circle text-success mr-1"></i>Geyser</span>
+                    </p>
+                    <button type="button" class="btn btn-outline-light bg-danger btn-block" data-toggle="modal" data-target="#myModal">
+                        <b>Contact Owner</b>
+                    </button> 
+    
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card p-2">
+                <img class="card-img-top" src="{% static 'images/pgs_files/twin.jpg'%}" height="220px" width="100%" alt="Card image">
+                <div class="card-body">
+                    <h4 class="card-title">Twin Sharing</h4>
+                    <p class="card-text mb-3">
+                        <span class="text secondary mb-5" style="margin-right:100px;">Rent</span> <span><b>&#8377; 6,500</b></span> <br>
+                        <span class="text secondary mb-5" style="margin-right:10px;">Room Dimension</span> <span><b>12ft X 10ft</b></span> <br>
+                        <span class="text secondary mb-5" style="margin-right:15px;">Rooms Available</span> <span><b>10</b></span> <br>
+                    </p>
+
+                    <h6>Amenities</h6>
+                    <p>
+                        <span class="mr-2"><i class="far fa-check-circle text-success mr-1"></i>Washroom/Toilet</span>
+                        <span class="mr-2"><i class="far fa-check-circle text-success mr-1"></i>Cupboard</span>
+                        <span class="mr-2"><i class="far fa-check-circle text-success mr-1"></i>TV</span>
+                        <span class="mr-2"><i class="far fa-check-circle text-success"></i>DTH</span>
+                    </p> 
+                    <p> 
+                        <span class="mr-2"><i class="far fa-check-circle text-success mr-1"></i>Wash Basins</span>
+                        <span class="mr-2"><i class="far fa-check-circle text-success mr-1"></i>Shower</span>
+                        <span class="mr-2"><i class="far fa-check-circle text-success mr-1"></i>Geyser</span>
+                    </p>
+                    <button type="button" class="btn btn-outline-light bg-danger btn-block" data-toggle="modal" data-target="#myModal">
+                        <b>Contact Owner</b>
+                    </button> 
+    
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card p-2">
+                <img class="card-img-top" src="{% static 'images/pgs_files/tripl.jpg'%}" height="220px" width="100%" alt="Card image">
+                <div class="card-body">
+                    <h4 class="card-title">Triple Sharing</h4>
+                    <p class="card-text mb-3">
+                        <span class="text secondary mb-5" style="margin-right:100px;">Rent</span> <span><b>&#8377; 6,000 </b></span> <br>
+                        <span class="text secondary mb-5" style="margin-right:10px;">Room Dimension</span> <span><b>12ft X 18ft</b></span> <br>
+                        <span class="text secondary mb-5" style="margin-right:15px;">Rooms Available</span> <span><b>7</b></span> <br>
+                    </p>
+
+                    <h6>Amenities</h6>
+                    <p>
+                        <span class="mr-2"><i class="far fa-check-circle text-success mr-1"></i>Washroom/Toilet</span>
+                        <span class="mr-2"><i class="far fa-check-circle text-success mr-1"></i>Cupboard</span>
+                        <span class="mr-2"><i class="far fa-check-circle text-success mr-1"></i>TV</span>
+                        <span class="mr-2"><i class="far fa-check-circle text-success"></i>DTH</span>
+                    </p> 
+                    <p> 
+                        <span class="mr-2"><i class="far fa-check-circle text-success mr-1"></i>Wash Basins</span>
+                        <span class="mr-2"><i class="far fa-check-circle text-success mr-1"></i>Shower</span>
+                        <span class="mr-2"><i class="far fa-check-circle text-success mr-1"></i>Geyser</span>
+                    </p>
+                    <button type="button" class="btn btn-outline-light bg-danger btn-block" data-toggle="modal" data-target="#myModal">
+                        <b>Contact Owner</b>
+                    </button> 
+    
+                </div>
+                
+            </div>
+        </div>
+
+    </div> <!--end of 3rd row-->
+
+    <div class="row mb-5 mt-5" id="a3"> <!--start of 4th row-->
+        <div class="col-md-12 mb-4 mt-4 text-center">
+            <h5>Common Areas and Amenities</h5>
+        </div>
+        <div class="col-md-2 ml-5">
+            <p><i class="fas fa-wifi" style="font-size:30px;"></i></p>
+            <p style="font-size:20px;">WiFi</p>
+        </div>
+        <div class="col-md-2 ml-4">
+            <p><i class="fas fa-tv" style="font-size:30px;"></i></p>
+            <p style="font-size:20px;">TV</p>
+        </div>
+        <div class="col-md-2 ml-4">
+            <p><i class="fas fa-fan" style="font-size:30px;"></i></p>
+            <p style="font-size:20px;">Fan</p>
+        </div>
+        <div class="col-md-2 ml-4">
+            <p><i class="fas fa-couch" style="font-size:30px;"></i></p>
+            <p style="font-size:20px;">Sofa</p>
+        </div>
+        <div class="col-md-2 ml-4">
+            <p><i class="fas fa-bed" style="font-size:30px;"></i></p>
+            <p style="font-size:20px;">Beds</p>  
+        </div>
+        
+    </div> <!--end of 4th row-->
+
+    <div class="row mb-5" id="a4"> <!--start of 5th row-->
+        <div class="col-md-12 mb-5 mt-4 text-center">
+            <h4>Food and Kitchen</h4>
+        </div>
+        <div class="col-md-3 ml-5">
+            <p><i class="fas fa-concierge-bell" style="font-size:30px;"></i></p>
+            <p style="font-size:15px;">Food Available</p>
+            <p style="font-size:15px;">Cooked in-house</p>
+        </div>
+        <div class="col-md-3">
+            <p><i class="fas fa-concierge-bell" style="font-size:30px;"></i></p>
+            <p style="font-size:15px;">Food On weekday</p>
+            <p style="font-size:15px;">Breakfast, Dinner</p>
+        </div>
+        <div class="col-md-3">
+            <p><i class="fas fa-concierge-bell" style="font-size:30px;"></i></p>
+            <p style="font-size:15px;">Food On weekend</p>
+            <p style="font-size:15px;">Breakfast, Lunch, dinner</p>
+        </div>
+        <div class="col-md-2">
+            <p><i class="fas fa-concierge-bell" style="font-size:30px;"></i></p>
+            <p style="font-size:15px;">Meals provided</p>
+            <p style="font-size:15px;">Both Veg and Non-Veg</p>   
+        </div>
+        
+    </div> <!--end of 5th row-->
+
+    <div class="row mb-5" id="a5"> <!--start of 6th row-->
+        <div class="col-md-12 mb-5 mt-4 text-center">
+            <h4>Other Charges</h4>
+        </div>
+
+        <div class="col-md-4" style="margin-left:400px;">
+            <p><i class="fas fa-credit-card" style="font-size:30px;"></i></p>
+            <p style="font-size:15px;">Deposit Amount </p>
+            <p style="font-size:15px;">&#8377; 2,000 </p>
+        </div>
+        <div class="col-md-4">
+            <p><i class="fas fa-wrench" style="font-size:30px;"></i></span>
+            <p style="font-size:15px;">Maintenance</p>
+            <p style="font-size:15px;">&#8377; 0 </p>
+        </div>
+        
+        
+    </div> <!--end of 6th row-->
+
+    <div class="row mb-5" id="a6"> <!--start of 7th row-->
+        <div class="col-md-12 mb-5 mt-4 text-center">
+            <h4>House Rules</h4>
+        </div>
+
+        <div class="col-md-2 ml-5">
+                <p><i class="fas fa-user-check" style="font-size:30px;"></i></p>
+                <p style="font-size:15px;">VisitorEntry</p>
+                <p style="font-size:15px;"><i class="far fa-check-circle text-success"></i></p>
+        </div>
+
+        <div class="col-md-2 ml-5">
+                <p><i class="fas fa-user-clock" style="font-size:30px;"></i></p>
+                <p style="font-size:15px;">Gate Closing Time</p>
+                <p style="font-size:15px;">Yes</p>  
+        </div>
+
+        <div class="col-md-2 ml-5">
+                <p><i class="fas fa-concierge-bell" style="font-size:30px;"></i></p>
+                <p style="font-size:15px;">Non-VegFood</p>
+                <p style="font-size:15px;"><i class="far fa-check-circle text-success"></i></p>
+        </div>
+
+        <div class="col-md-2 ml-5">
+            <p><i class="fas fa-glass-cheers" style="font-size:30px;"></i></p>
+            <p style="font-size:15px;">Drinking</p>
+            <p style="font-size:15px;"><i class="far fa-check-circle text-success"></i></p>
+        </div>
+
+        <div class="col-md-2 ml-3">
+            <p><i class="fas fa-music" style="font-size:30px; "></i></p>
+            <p style="font-size:15px;">LoudMusic</p>
+            <p style="font-size:15px;"><i class="far fa-check-circle text-success"></i></p>
+        </div>
+
+    </div> <!--end of 7th row-->
+
+    <div class="row mb-5" id="a7"> <!--start of 8th row-->
+        <div class="col-md-12 mb-4 mt-4 text-center">
+            <h4>Locality Map</h4>
+        </div>
+
+        <div class="col-md-12 p-2">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31103.129920731593!2d77.69938061770915!3d12.978807543375018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae11caf1c83635%3A0x461d7fd9eb2cd5f6!2sPARTHIV%20Pg%20for%20ladies!5e0!3m2!1sen!2sin!4v1586428087630!5m2!1sen!2sin" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        </div>
+
+    </div> <!--end of 8th row-->
+
+    <div class="modal" id="myModal">  <!--Modal1-->
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header"> <!--modal-header starts here-->
+                    <h4 class="modal-title">Owner Contact Number 94XXXXXX86</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>  <!--End of modal-header-->
+
+                <div class="modal-body"> <!--Start of modal body-->
+                    <fieldset>
+                        <legend>Contact Owner : </legend>
+                        <form action="" method="">
+                            <div class="form-group">
+                                <label for="uname">Name:</label>
+                                <input type="text" class="form-control" id="uname" placeholder="Enter username" name="uname" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email address:</label>
+                                <input type="email" class="form-control" placeholder="Enter email" id="email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="uname">Mobile Number:</label>
+                                <input type="text" class="form-control" id="uname" placeholder="Enter Phone Number" name="uname" required>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <label class="form-check-label" for="check1">
+                                        <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something" checked>
+                                        Single Room <span> ( &#8377; 11,000 )</span>
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <label class="form-check-label" for="check2">
+                                        <input type="checkbox" class="form-check-input" id="check2" name="option2" value="something">
+                                        Twin Sharing <span>( &#8377; 6,500 )</span>
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" id="check2" name="option2" value="something" >
+                                        Triple Sharing <span> ( &#8377; 6000 ) </span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="submit" value="Contact" class="btn btn-danger text_light btn-block">
+                            </div>
+                        </form>
+                    </fieldset>
+                </div> <!--end of modal body-->
+            </div> <!--end of modal content-->
+        </div> <!--end of modal-dialog-->
+    </div> <!--end of modal-->
+
+    <div class="modal" id="myModal2">  <!--Modal2 starts here-->
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header"> <!--modal2-header starts here-->
+                    <h4 class="modal-title">Owner Contact Number 94XXXXXX86</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>  <!--End of modal2-header-->
+
+                <div class="modal-body py-0"> <!--Start of modal2 body-->
+                    <fieldset>
+                        <legend>Contact Owner : </legend>
+                        <form action="" method="">
+                            <div class="form-group">
+                                <label for="uname">Name:</label>
+                                <input type="text" class="form-control" id="uname" placeholder="Enter username" name="uname" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email address:</label>
+                                <input type="email" class="form-control" placeholder="Enter email" id="email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="uname">Mobile Number:</label>
+                                <input type="text" class="form-control" id="uname" placeholder="Enter Phone Number" name="uname" required>
+                            </div>
+
+                            
+
+                            <div class="form-group py-0 mb-0 mt-0">
+                                <label for="proprty_typ">Preferred Days To Call : </label>
+                                       <select class="form-control" id="proprty_typ" name="proprty">
+                                         <option>---Select Preferred Days---</option>
+                                         <option>Saturday</option>
+                                         <option>Sunday</option>
+                                         <option>Week Days</option>
+                                       </select>
+                                <br>
+                            </div>
+
+                            <div class="form-group py-0 mb-0">
+                                <label for="proprty_typ">Preferred Time Period To Call : </label>
+                                       <select class="form-control" id="proprty_typ" name="proprty">
+                                         <option>---Select Preferred Time---</option>
+                                         <option>Morning</option>
+                                         <option>Afternoon</option>
+                                         <option>Evening</option>
+                                       </select>
+                                <br>
+                            </div>
+                            <div class="form-group py-0 mt-0">
+                                <input type="submit" value="Contact" class="btn btn-danger text_light btn-block">
+                            </div>
+                        </form>
+                    </fieldset>
+                </div> <!--end of modal2 body-->
+            </div> <!--end of modal2 content-->
+        </div> <!--end of modal2-dialog-->
+    </div> <!--end of modal2-->
+
+</div> <!--end of container-->
+
+
+
+{% endblock %}

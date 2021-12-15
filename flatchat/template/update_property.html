@@ -1,0 +1,405 @@
+{% extends "dashboard_base.html" %}
+{% load static %}
+{% block head %}
+<style>
+    form .row{
+        margin-top:2%;
+    }
+    label{
+        font-size:17px; font-weight:bold; color:darkslategrey;
+    }
+    body{
+        background-color:whitesmoke;
+    }
+    form{
+        background-color:gainsboro;
+    }
+</style>
+{% endblock %}
+
+{% block dashboard %}
+<div class="container-fluid" style="background:url('/static/images/h14.jpeg');background-size:100% 100%;">
+    <div class="row py-5" style="background:rgba(0,0,0,0.4)">
+        <div class="col-md-12 py-2 my-2 text-light text-center font-weight-bold text-uppercase">
+            <h1>Dashboard &gt; EDIT PROPERTY </h1>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="card col-md-10 mx-auto">
+            <div class="card-header text-center m-2">
+                <h2 style="color:mediumblue; font-weight:bold;">{{property.property_name}}</h2>
+            </div>
+            <div class="card-body">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="">Property Name</label>
+                                        </div>
+                
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control" name="pname" value="{{property.property_name}}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="">Address</label>
+                                        </div>
+                
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control" name="addr" value="{{property.address}}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="">Property Status</label>
+                                        </div>
+                
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control" name="pstts" value="{{property.property_status}}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="">Property Category</label>
+                                        </div>
+                
+                                        <div class="col-md-6">
+                                            <select name="pcat" id="" class="form-control">
+                                                {% for i in category %}
+                                                {% if i.id == property.property_type.id %}
+                                                <option value="{{i.id}}" selected>{{i.cat_name}}</option>
+                                                {% else %}
+                                                <option value="{{i.id}}">{{i.cat_name}}</option>
+                                                {% endif %}
+                                                {% endfor %}
+                                             </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="">Property Price</label>
+                                        </div>
+                
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control" name="pp" value="{{property.property_price}}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="">Booking Price</label>
+                                        </div>
+                
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control" name="bp" value="{{property.booking_amount}}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="">Bathrooms</label>
+                                        </div>
+                
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control" name="pbath" value="{{property.no_of_bathrooms}}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="">Bedrooms</label>
+                                        </div>
+                
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control" name="pbed" value="{{property.no_of_bedrooms}}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="">Area</label>
+                                        </div>
+                
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control" name="parea" value="{{property.area}}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="">Laundary Room</label>
+                                        </div>
+                
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control" name="plr" value="{{property.is_Laundry_room}}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="">Air Conditioning</label>
+                                        </div>
+                
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control" name="pac" value="{{property.is_Air_Conditioning}}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="">Gym</label>
+                                        </div>
+                
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control" name="pgym" value="{{property.is_Gym}}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="">TV Cable</label>
+                                        </div>
+                
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control" name="ptv" value="{{property.is_TV_Cable}}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="">WiFi</label>
+                                        </div>
+                
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control" name="pwifi" value="{{property.is_Wifi}}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="">Parking</label>
+                                        </div>
+                
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control" name="pprkg" value="{{property.is_Parking}}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="">Swimming Pool</label>
+                                        </div>
+                
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control" name="pswmgpl" value="{{property.is_Swimming_Pool}}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label for="">Details</label>
+                        </div>
+
+                        <div class="col-md-9">
+                            <textarea class="form-control" name="des" rows="6">
+                                {{property.description}}
+                            </textarea>
+                        </div>
+                    </div>
+
+                                          
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="text-center">
+                            <img src="/media/{{property.property_image1}}" alt="" style="height:0px; width:0%;">
+                            </div>
+                            <label for="" class="mt-3">Update Image1 : </label>
+                            <input type="file" class="form-control" name="pimg1">
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="text-center">
+                            <img src="/media/{{property.property_image2}}" alt="" style="height:0px; width:0%;">
+                            </div>
+                            <label for="" class="mt-3">Update Image2 : </label>
+                            <input type="file" class="form-control" name="pimg2">
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="text-center">
+                            <img src="/media/{{property.property_image3}}" alt="" style="height:0px; width:0%;">
+                            </div>
+                            <label for="" class="mt-3">Update Image3 : </label>
+                            <input type="file" class="form-control" name="pimg3">
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="text-center">
+                            <img src="/media/{{property.property_image4}}" alt="" style="height:0px; width:0%;">
+                            </div>
+                            <label for="" class="mt-3">Update Image4 : </label>
+                            <input type="file" class="form-control" name="pimg4">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-10 text-center m-2 p-2">
+                            <input type="submit" class="btn btn-primary btn-block p-2 font-weight-bold" value="SAVE CHANGES">
+                        </div>  
+                        <div class="col-md-1"></div>
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+{% if status %}
+<script>
+    alert("{{status}}");
+    window.location = "/update_property?pid={{id}}"; 
+</script>
+{% endif %}
+{% endblock %}

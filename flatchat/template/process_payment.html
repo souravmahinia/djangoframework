@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block myblock %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 my-5 py-5 mx-auto">
+            <div class="card text-center my-5 border-0 shadow rounded-lg">
+                <div style="color:cornflowerblue; font-family:lobster;">
+                    <!--<h3 style="color:black;">{{user.username}} {{user.id}} {{property.id}}</h3> -->
+                    <h2>Click To Continue</h2><hr>
+                </div>
+                <div class="card-body">
+                    {{form.render}}
+                </div>
+            </div>    
+        </div>
+    </div>
+</div>
+
+{% endblock %}

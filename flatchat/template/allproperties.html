@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% load static %}
+{% block head %}
+    <style>
+        a:hover{
+            text-decoration:none;
+        }
+        .hover:hover{
+            box-shadow: 0px 0px 12px burlywood;
+        }
+       
+    </style>
+{% endblock %}
+{% block myblock %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center pt-3 pb-1">
+            {% if abcd %}
+                <h1 style="color:brown; box-shadow:0px 0px 25px whitesmoke;">Total ({{properties|length}}) Properties Found</h1>
+            {% else %}
+            <h1 style="color:brown; box-shadow:0px 0px 25px whitesmoke;">FEATURED COLLECTIONS ({{properties|length}})</h1>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        <div class="row mt-2">
+            {% for i in properties %}
+            <div class="card col-md-4 hover mb-4">
+                <img class="card-img-top" src="/media/{{i.property_image1}}" height="183px" width="100%" alt="Card image">
+                <div class="card-body">
+                    <a href="{% url 'single_property' %}?pid={{i.id}}"><h4 class="card-title  text-center">{{i.property_name}}</h4></a>
+                    <p class="card-title text-center text-secondary"><i class="fas fa-map-marker-alt mr-1 text-success"></i>{{i.address}}</p>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <span style="font-weight:bold; font-size:15px;"><i class="fas fa-bed text-success mr-1"></i>{{i.no_of_bedrooms}}+ Beds</span>
+                                </div>
+                                <div class="col-md-6">
+                                    <span style="font-weight:bold; font-size:15px;"><i class="fas fa-bath text-success mr-1"></i>{{i.no_of_bathrooms}}+ Baths</span>
+                                </div>
+                                <div class="col-md-6">
+                                    <span style="font-weight:bold; font-size:15px;"><i class="fas fa-sync-alt text-success mr-1"></i>{{i.area}} sq.ft</span>
+                                </div>
+
+                                
+                                <div class="col-md-6">
+                                    <span style="font-weight:bold; font-size:15px;"><i class="fas fa-user text-success mr-1"></i>{{i.seller.first_name}}</span>
+                                </div>
+
+                                <div class="row mt-2">
+                                    <div class="col-md-2"></div>
+
+                                    <div class="col-md-2">
+                                        <img src="{% static 'images/book_property.jpg'%}" style="height:60px;width:100px;">  
+                                    </div>
+
+                                    <div class="col-md-2"></div>
+    
+                                    <div class="col-md-6 mx-auto mt-3">
+                                        <span style="font-weight:bold; font-size:20px; color:brown;">&#36; {{i.booking_amount}}</span>    
+                                    </div>   
+                                </div>
+  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer text-center">
+                    <form action="{% url 'process_payment' %}" method="post">
+                        {% csrf_token %}
+                   
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a href="{% url 'single_property' %}?pid={{i.id}}">
+                                    <button type="button" class="btn btn-outline-light btn-block text-light bg-success p-2">
+                                        <b>View Property</b>
+                                    </button>
+                                </a>
+                            </div>
+
+                            <div class="col-md-6">
+                                    <input type="hidden" value="{{i.id}}" name="pid">
+                                    <!--
+                                    <input type="hidden" value="{{i.booking_amount}}" name="amt">
+                                    <input type="hidden" value="{{i.property_name}}" name="pnm">
+                                    -->
+                                    <button type="submit" class="btn btn-outline-light btn-block text-light bg-success p-2">
+                                        <b>Book Property</b>
+                                    </button>
+                            </div>   
+                        </div> 
+                    </form>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    {% if status %}
+    <script>
+        alert("{{status}}");
+        window.location = "/all_properties"; 
+    </script>
+    {% endif %}
+    
+{% endblock %}

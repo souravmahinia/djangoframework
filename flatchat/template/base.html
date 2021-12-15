@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flatchat</title>   
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css'%}">
+    <script src="{% static 'jquery/jqry.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap-responsive.css' %}">
+    <script src="{% static 'bootstrap/js/bootstrap.min.js '%}"></script>
+    <link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css'%}">
+    <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed|Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster+Two&display=swap" rel="stylesheet">
+    
+    <style>
+        body{
+            margin:0; padding:0;
+            overflow-x:hidden;
+        }
+        a{
+            color:black;
+        }
+        p{
+            font-weight:lighter; 
+        }
+        li{
+            margin-bottom:10px;
+        }
+        body{
+            
+            margin-left:0 !important; margin-right:0 !important;
+            padding-left:0 !important; padding-right:0 !important;
+        }
+        
+        
+    </style>
+
+    {% block head %}
+    <!-- For adding the styles of Internal css of child classes-->
+    {% endblock %}
+</head>
+<body>
+    <!--Start of the header section-->
+    <div class="container-fluid" style="background-color: gainsboro;"> <!--start of container tag-->
+        <div class="row px-0"> <!--start of row-->
+            <div class="col-md-12 px-0"> <!--start of col-md-12-->
+               
+                <nav class="navbar navbar-expand-md" style="font-size:18px;"> <!--start of nav tag-->
+                    <a href="" class="navbar-brand">
+                        <img src="{% static 'images/logo.png' %}" alt="logo" style="margin-left:40px;">
+                    </a>
+                    <button class="navbar-toggler bg-primary" type="button" data-toggle="collapse" data-target="#collapse_target" >
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="collapse_target">
+                    
+                    
+                    <ul class="navbar-nav mx-auto"> <!--start of unoredered list1-->
+
+                        <li class="nav-item dropdown ml-5"> <!--list item-properties -->
+                            <a class="nav-link dropdown-toggle " data-toggle="dropdown"  href="">Rent</a>
+                        <div class="dropdown-menu bg-white text-dark p-3" style="width:800px; ">
+                    
+                            <div class="row p-2">
+                                <div class="col-md-4  border border-left-0 border-top-0 border-bottom-0 p-2">
+                            
+                                    <h3>Properties In Bangalore</h3>
+                                    <a href="{% url 'view_property' %}" class="dropdown-item border border-right-0 border-top-0 border-left-0 pl-0" >200+ PG Homes</a>
+                                    <a href="#" class="dropdown-item border border-right-0 border-top-0 border-left-0 pl-0">18K+ Flats</a>
+                                    <a href="#" class="dropdown-item border border-right-0 border-top-0 border-left-0 pl-0">9K+ House/Villa</a>
+                                    <a href="#" class="dropdown-item border border-right-0 border-top-0 border-left-0 pl-0">5K+ Office Space</a>
+                                    <a href="#" class="dropdown-item border border-right-0 border-top-0 border-left-0 pl-0">1K+ Shops</a>
+                                        
+                                </div>
+                                
+                                <div class="col-md-4  border border-left-0 border-top-0 border-bottom-0 p-2">
+                                    
+                                    <h3>Featured Collections</h3>
+                                    <a href="#" class="dropdown-item border border-right-0 border-top-0 border-left-0 pl-0" >20K+ Owner Properties</a>
+                                    <a href="#" class="dropdown-item border border-right-0 border-top-0 border-left-0 pl-0">3K+ Verified Properties</a>
+                                    <a href="#" class="dropdown-item border border-right-0 border-top-0 border-left-0 pl-0">19K+ Exclusive Properties</a>
+                                    <a href="#" class="dropdown-item border border-right-0 border-top-0 border-left-0 pl-0">2K+ Furnished Homes</a>
+                                    <a href="#" class="dropdown-item border border-right-0 border-top-0 border-left-0 pl-0">5K+ Bachelor Friendly Homes</a>
+                                    
+                                </div>
+                                <div class="col-md-4 p-2">
+                                    <h3>Budget Friendly Homes</h3>
+                                    <a href="#" class="dropdown-item border border-right-0 border-top-0 border-left-0 pl-0" >4K+ options under Rs.10,000</a>
+                                    <a href="#" class="dropdown-item border border-right-0 border-top-0 border-left-0 pl-0" >10K+ options under Rs.15,000</a>
+                                    <a href="#" class="dropdown-item border border-right-0 border-top-0 border-left-0 pl-0" >16K+ options under Rs.20,000</a>
+                                    <a href="#" class="dropdown-item border border-right-0 border-top-0 border-left-0 pl-0" >18K+ options under Rs.25,000</a>
+                                    <a href="#" class="dropdown-item border border-right-0 border-top-0 border-left-0 pl-0" >20K+ options under Rs.30,000</a>
+                                </div>
+                                   
+                            </div>
+                        </div>
+                        
+                        </li>  <!--list item-property ends here-->
+
+                        <li class="nav-item"><a class="nav-link active text-primary ml-5 mr-4" href="{% url 'home' %}">HOME</a></li>
+                        
+                        <li class="nav-item"><a class="nav-link ml-4 mr-4" href="{% url 'all_properties' %}">PROPERTY</a></li>
+                        
+
+                        <li class="nav-item dropdown ml-4 mr-4">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">
+                                PAGES
+                            </a>
+
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" style="font-weight:bold;" href="{% url 'contact' %}">Contact Us</a><hr>
+                                <a class="dropdown-item" style="font-weight:bold;" href="{% url 'about' %}">About Us</a><hr>
+                                <a class="dropdown-item" style="font-weight:bold;" href="{% url 'about' %}">Agent List</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a href="" class="nav-link active dropdown-toggle" data-toggle="dropdown">Categories</a>
+                            <div class="dropdown-menu">
+                                {% for c in category %}
+                                <a href="{% url 'all_properties' %}?cat={{c.id}}" class="dropdown-item" style="font-weight:bold;">{{c.cat_name}}</a> <hr>
+                                {% endfor %}
+                            </div>
+                        </li>
+
+                    </ul>  <!--end of unordered list1-->
+                    
+
+                    <ul class="navbar-nav ml-auto">
+                        {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a href="{% url 'customer_dashboard' %}" class="nav-link" style="font-weight:500;font-family:lobster;font-size:25px; color:midnightblue;">Welcome {{user.username}}</a>
+                        </li>
+                        {% else %}
+
+                        <li class="nav-item">
+                            <a href="" class="nav-link mr-4 mt-0" 
+                            data-toggle="modal" data-target="#mymodal" style="font-size:17px;">
+                            <i class="fas fa-sign-in-alt mr-1 text-primary"></i><b>Login</b>
+                            </a>
+                        </li>   
+
+                        <li class="nav-item mr-4 my-0" style="font-size:17px;">
+                            <a href="{% url 'signup' %}" class="nav-link" style="font-weight:bold;">
+                                <i class="fas fa-user mr-1 text-primary"></i>SignUp
+                            </a>
+                        </li> 
+
+                        {% endif %}
+                    </ul>
+                    </div>
+                
+                </nav> <!--end of nav tag-->
+
+            </div> <!--end of col-md-12-->
+        </div> <!--end of row-->
+
+        <div class="modal fade" id="mymodal">  <!--Modal starts here-->
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header"> <!--modal-header starts here-->
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>  <!--End of modal-header-->
+
+                    <div class="modal-body"> <!--Start of modal body-->
+                        <form action="{% url 'user_login' %}" method="post">
+                            {% csrf_token %}
+                            <h4 style="font-family:lobster; font-size:25px; box-shadow: 0px 0px 20px lightblue;" class="text-center">LOGIN</h4>
+                            <div class="form-group">
+                                <label for="usernm">Username</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-user"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text" name="username" id="usernm" class="form-control" placeholder="Enter Username" required>
+                                </div> 
+                            </div>
+
+                            <div class="form-group">
+                                <label for="pass">Password</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fas fa-key"></i>
+                                        </span>
+                                    </div>
+                                    <input type="password" name="password" id="pass" class="form-control" placeholder="Enter Password" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="checkbox" name="rememberme"><label for="">&nbsp;Remember Me</label>
+                                <span style="float:right;"><a href="{% url 'forgotpass' %}" style="color:cornflowerblue; font-weight:bold;">Forgot Password?</a></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="LOGIN" class="btn btn-primary btn-block rounded-pill">
+                            </div>
+                            <h6 class="text-center" style="font-weight:bold;">Not a member? <a href="{% url 'signup' %}" class="text-primary">Sign Up Now</a></h6>
+                        </form>  
+                    </div> <!--end of modal body-->
+                </div> <!--end of modal content-->
+            </div> <!--end of modal-dialog-->
+        </div> <!--end of modal-->
+
+    </div> <!--end of container tag-->
+    <!--end of the header section-->
+
+
+    {% block myblock %}
+         <!--Child class code gets executed here-->
+    {% endblock %}
+
+
+    <!--Start of the footer section-->
+    <div class="container-fluid" style="background-color:gainsboro;">
+        <div class="row px-0">
+            <div class="col-md-3 mt-2" style="font-weight:bold;">
+                <h4 style="margin-bottom:25px;">
+                    <img src="{% static 'images/footr_logo.webp' %}" alt="logo" style="width:50px; margin-left:10px;">
+                    Contact Us</h4>
+                <p class="mt-1">+10 873 672 6782</p> 
+                <p>600/D, Green road, NewYork</p> 
+                <p>Monday-Saturday(9:00AM to 6:00PM)</p> 
+                <a href="#"class="badge badge-dark p-2"><i class="fa fa-phone mr-2 text-primary"></i>Toll Free : 1601-609 6780</a><br>
+            </div>
+
+            <div class="col-md-3 mt-2">
+                <h3 style="margin-bottom:25px;">Services</h3>
+                <ul type="none">
+                    <li><a href="">Feedback</a></li>
+                    <li><a href="">Privacy Policy</a></li>
+                    <li><a href="">Help Center</a></li>
+                    <li><a href="">Terms & Conditions</a></li>
+                    <a href="#"class="badge badge-dark p-2"><i class="fa fa-envelope mr-2 mb-1 text-primary"></i>feedback@99acres.com</a><br>
+                </ul>
+            </div>
+
+            <div class="col-md-3 mt-2">
+                <h3 style="margin-bottom:25px;">Contact Info</h3>
+                <ul type="none">
+                    <li><a href=""><span style="font-size: 20px;"><i class="fa fa-phone mr-2 text-primary"></i></span>012-3456-789</a></li>
+                    <li><a href=""><span style="font-size: 20px;"><i class="fas fa-map-marker-alt mr-2 text-primary"></i></span>4257 Street, SunnyVale, USA</a></li>
+                    <li><a href=""><span style="font-size: 20px;"><i class="fa fa-envelope mr-2 text-primary"></i></span>info@maaxen.com </a></li>
+                    <li><a href=""><span style="font-size: 20px;"><i class="fas fa-tty  mr-2 text-primary"></i></span>112-3456-7898</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-3 mt-2">
+                <h3>Follow Us</h3>
+                <ul type="none">
+                    <li><a href=""><span style="font-size: 20px;"><i class="fab fa-facebook-f mr-2 p-2 mt-2 rounded-circle bg-primary text-light"></i></span>Share on Facebook</a> </li>
+                    <li><a href=""><span style="font-size: 20px;"><i class="fab fa-instagram mr-2 p-2 rounded-circle bg-primary text-light"></i></span>Share on Instagram</a></li>
+                    <li><a href=""><span style="font-size: 20px;"><i class="fab fa-twitter mr-2 p-2 rounded-circle bg-primary text-light"></i></span>Share on twitter</a></li>
+                    <li><a href=""><span style="font-size: 20px;"><i class="fab fa-google-plus-g mr-2 p-2 rounded-circle bg-primary text-light"></i></span>Share on Google+</a></li>
+                </ul>  
+            </div>
+
+        </div>
+    </div>
+    <!--End of footer section-->
+
+    
+</body>
+</html>

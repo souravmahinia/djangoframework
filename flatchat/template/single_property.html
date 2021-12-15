@@ -1,0 +1,246 @@
+{% extends "base.html" %}
+{% load static %}
+{% block head %}
+<style>
+    .carousel-indicators{
+        margin-bottom:10px; color:black;    
+       
+    }
+
+    .carousel-control-next-icon, .carousel-control-prev-icon{
+        height:50px;
+        width:50px;
+        outline: black;
+        background-color: rgba(0, 0, 0, 0.9);
+        
+        border-radius:50%;
+        border: 1px solid black;
+    }
+    
+
+</style>
+{% endblock %}
+{% block myblock %}
+<div class="container-fluid">
+    <div class="row mt-3" style="background-color:mintcream">
+        <div class="col-md-7 mb-1">
+            <i class="fas fa-map-marker-alt mr-1 mt-2 ml-3 text-muted">
+                <span style="font-weight:bold; font-size:30px; color:mediumblue" class="mt-2">{{property.property_name}}</span><br/>
+            </i>
+        </div>
+        <div class="col-md-5">
+            <span class="p-2 mr-4" style="background-color:mediumblue; color:white; font-weight:bold; font-size:20px;">
+                For {{property.property_status}} ({{property.property_type.cat_name}})
+            </span>
+            <span style="color:teal; font-weight:bolder; font-size:20px;" >&#36;{{property.booking_amount}} <span style="color:black; font-weight:bold; font-size:15px;">/month</span> </span>
+        </div>
+    </div>
+
+    <div class="row mt-2 mb-2">
+        <div class="col-md-12">
+            <div class="carousel slide px-0 mx-0 " data-ride="carousel" id="pro"> <!--carousel starts here-->
+                <ul class="carousel-indicators" >
+                    <li data-target="#pro" data-slide-to="0" class="active"></li>
+                    <li data-target="#pro" data-slide-to="1" ></li>  
+                </ul>
+
+                <a href="#pro" class="carousel-control-prev" data-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </a>
+                <a href="#pro" class="carousel-control-next" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </a>
+                <div class="carousel-inner"> <!--carousel inner starts here-->
+    
+                    <div class="carousel-item active"> 
+                        <div class="row">
+                            <div class="col-md-6 mb-2 px-0">
+                                <img src="/media/{{property.property_image3}}" alt="No Image" style="height:500px; width:100%">
+                            </div>
+
+
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6 mb-2">
+                                        <img src="/media/{{property.property_image4}}" alt="No Image" style="height:250px; width:100%">
+                                    </div>
+        
+                                    <div class="col-md-6 mb-2">
+                                        <img src="/media/{{property.property_image2}}" alt="No Image" style="height:250px; width:100%">
+                                    </div>
+        
+                                    <div class="col-md-6 mb-2">
+                                        <img src="/media/{{property.property_image1}}" alt="No Image" style="height:250px; width:100%">
+                                    </div>
+        
+                                    <div class="col-md-6 mb-2">
+                                        <img src="/media/{{property.property_image3}}" alt="No Image" style="height:250px; width:100%">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="carousel-item"> 
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img src="/media/{{property.property_image3}}" alt="No Image" style="height:500px; width:100%">
+                            </div>
+
+
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6 mb-2">
+                                        <img src="/media/{{property.property_image4}}" alt="No Image" style="height:250px; width:100%">
+                                    </div>
+        
+                                    <div class="col-md-6 mb-2">
+                                        <img src="/media/{{property.property_image2}}" alt="No Image" style="height:250px; width:100%">
+                                    </div>
+        
+                                    <div class="col-md-6">
+                                        <img src="/media/{{property.property_image1}}" alt="No Image" style="height:250px; width:100%">
+                                    </div>
+        
+                                    <div class="col-md-6">
+                                        <img src="/media/{{property.property_image3}}" alt="No Image" style="height:250px; width:100%">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+    
+                </div> <!--carousel inner ends here-->
+    
+            </div> <!--carousel ends here-->
+        </div>
+    </div>
+
+    <div class="row mt-5 jumbotron">
+        <div class="col-md-1"></div>
+        <div class="col-md-6 mb-1">
+            <i class="fas fa-map-marker-alt mr-1 mt-2 text-primary ml-5">
+                <span style="font-weight:bold; font-size:32px" class="mt-2">{{property.property_name}}</span><br/>
+            </i> 
+        </div>
+        <div class="col-md-5">
+            <span class="p-2 mr-4" style="background-color:mediumblue; color:white; font-weight:bold; font-size:23px;">
+                For Rent  ({{property.property_type.cat_name}})
+            </span>
+            <span style="color:teal; font-weight:bolder; font-size:23px;" >&#36;{{property.booking_amount}} <span style="color:black; font-weight:bold; font-size:15px;">/month</span> </span>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+
+
+    <div class="row mt-4">
+        
+        <div class="col-md-8 p-5 m-2">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row p-2">
+                        <div class="col-md-4">
+                            <table class="table table-light">
+                                <tr>
+                                    <th class="text-muted">Registered ID : <span style="color:black; font-size:17px;">{{property.id}}</span></th>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-md-7">
+                            <table  class="table table-light">
+                                <thead>
+                                    <tr class="text-muted">
+                                        <th>Lot Size</th>
+                                        <th>Beds</th>
+                                        <th>Bath</th>
+                                        <th>Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="color:black; font-size:17px; font-weight:bold;">
+                                        <td><i class="fas fa-sync-alt mr-1 text-primary" style="font-size:22px;"></i>{{property.area}} sqft</td>
+                                        <td><i class="fas fa-bed mr-1 text-primary" style="font-size:22px;"></i>{{property.no_of_bedrooms}}</td>
+                                        <td><i class="fas fa-bath mr-1 text-primary" style="font-size:22px;"></i>{{property.no_of_bathrooms}}</td>
+                                        <td>&#36;{{property.property_price}}</td>
+                                    </tr>   
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 p-2"><hr/>
+                    <span style="font-size:25px; color:cornflowerblue; font-weight:bold;">Property Description</span><hr/>
+                    <p style="color:darkslategray; font-weight:initial; text-align:justify;">{{property.description}}</p>
+                </div>
+
+                <div class="col-md-12 p-2">
+                    <span style="font-size:25px; color:cornflowerblue; font-weight:bold;">Property Features</span><hr/>
+                    <div class="row p-3">
+                        <div class="col-md-4 p-2">
+                            <p style="font-size:18px; font-weight:bold;"><i class="fas fa-check text-success font-weight-bold mr-2"></i>Lot Area : <span class="text-muted">{{property.area}} SQ FT.</span></p>
+                            <p style="font-size:18px; font-weight:bold;"><i class="fas fa-check text-success font-weight-bold mr-2"></i>Bed Rooms : <span class="text-muted">{{property.no_of_bedrooms}}</span></p>
+                            <p style="font-size:18px; font-weight:bold;"><i class="fas fa-check text-success font-weight-bold mr-2"></i>Bath Rooms : <span class="text-muted">{{property.no_of_bathrooms}}</span></p>
+                            <p style="font-size:18px; font-weight:bold;"><i class="fas fa-check text-success font-weight-bold mr-2"></i>Is Air Conditioning : <span class="text-muted">{{property.is_Air_Conditioning}}</span></p>
+                            <p style="font-size:18px; font-weight:bold;"><i class="fas fa-check text-success font-weight-bold mr-2"></i>Is Gym : <span class="text-muted">{{property.is_Gym}}</span></p>
+                        </div>
+
+                        <div class="col-md-4 p-2">
+                            <p style="font-size:18px; font-weight:bold;"><i class="fas fa-check text-success font-weight-bold mr-2"></i>Is Gym : <span class="text-muted">{{property.is_Laundry_room}}</span></p>
+                            <p style="font-size:18px; font-weight:bold;"><i class="fas fa-check text-success font-weight-bold mr-2"></i>Is TV Cable : <span class="text-muted">{{property.is_TV_Cable}}</span></p>
+                            <p style="font-size:18px; font-weight:bold;"><i class="fas fa-check text-success font-weight-bold mr-2"></i>Is WiFi : <span class="text-muted">{{property.is_Wifi}}</span></p>
+                            <p style="font-size:18px; font-weight:bold;"><i class="fas fa-check text-success font-weight-bold mr-2"></i>Is Parking Facility : <span class="text-muted">{{property.is_Parking}}</span></p>
+                            <p style="font-size:18px; font-weight:bold;"><i class="fas fa-check text-success font-weight-bold mr-2"></i>Is Swimming Pool : <span class="text-muted">{{property.is_Swimming_Pool}}</span></p>
+                        </div>
+
+                        <div class="col-md-4 p-2">
+                            <p style="font-size:18px; font-weight:bold;"><i class="fas fa-check text-success font-weight-bold mr-2"></i>Added On : <span class="text-muted">{{property.is_Wifi}}</span></p>
+                            <p style="font-size:18px; font-weight:bold;"><i class="fas fa-check text-success font-weight-bold mr-2"></i>Property Status : <span class="text-muted">{{property.property_status}}</span></p>
+                            <p style="font-size:18px; font-weight:bold;"><i class="fas fa-check text-success font-weight-bold mr-2"></i>Property Type : <span class="text-muted">{{property.property_type}}</span></p>
+                            <p style="font-size:18px; font-weight:bold;"><i class="fas fa-check text-success font-weight-bold mr-2"></i>Price : <span class="text-muted">&#36;{{property.property_price}}</span></p>
+                            <p style="font-size:18px; font-weight:bold;"><i class="fas fa-check text-success font-weight-bold mr-2"></i>Booking Rate:  <span class="text-muted">&#36;{{property.booking_amount}}</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="col-md-3 p-3">
+            <div class="card">
+                <div class="card-header text-center" style="font-size:20px; background-color: cornflowerblue; color:cornsilk; font-weight:bold;">
+                    <img src="/media/{{property.seller.register_table.profile_pic}}" alt="" class="mr-3" style=" border-radius: 100%; height:90px; width:90px; margin-top:20px;">
+                    <span>{{property.seller.first_name}}</span><hr/>
+                    <span><i class="fas fa-phone-alt mr-2"></i>{{property.seller.register_table.contact_number}}</span>
+                    
+                </div>
+                <div class="card-body">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input type="text" placeholder="Name" class="form-control" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email" class="form-control" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" placeholder="Phone" class="form-control" name="contact" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Message" rows="5" name="message" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <a href="{% url 'process_payment' %}" class="btn btn-primary btn-block p-2 font-weight-bold">I Am Interested</a>
+                            
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+   
+</div>
+{% endblock %}
